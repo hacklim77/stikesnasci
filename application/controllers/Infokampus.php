@@ -1,22 +1,22 @@
 <?php
 
-    class Berita extends CI_Controller
+    class Infokampus extends CI_Controller
     {
         public function __construct()
         {
             parent::__construct();
-            $this->load->model('Informasimodel');   
+            $this->load->model('Informasimodel');
             $this->load->helper('tgl_indo');   
         }
 
         public function index()
         {
-            $data['title'] = 'Berita';
+            $data['title'] = 'Info Kampus';
 
             $this->load->library('pagination');
 
-            $config['base_url'] = 'http://localhost/stikesnas/berita/index';
-            $config['total_rows'] = $this->Informasimodel->getBeritaCount();
+            $config['base_url'] = 'http://localhost/stikesnas/infokampus/index';
+            $config['total_rows'] = $this->Informasimodel->getInfomhsCount();
             $config['per_page'] = 10;
 
 
@@ -51,14 +51,14 @@
             
             $data['start'] = $this->uri->segment(3);
             //$data['mytable'] = $this->Mytable_model->getMytable($config['per_page'],$data['start']);
-            $data['berita'] = $this->Informasimodel->getBeritaAll($config['per_page'],$data['start']);
-            $data['infomhs'] = $this->Informasimodel->getInfomhs();
+            $data['infomhs'] = $this->Informasimodel->getInfomhsAll($config['per_page'],$data['start']);
+            $data['berita'] = $this->Informasimodel->getBeritaAll(5,0);
 
             $this->load->view('front/templates/header');
             $this->load->view('front/templates/endscript');
             $this->load->view('front/templates/menu');
             $this->load->view('front/templates/indikator',$data);
-            $this->load->view('front/berita/index',$data);
+            $this->load->view('front/infokampus/index',$data);
             $this->load->view('front/templates/footer');
         }
     }

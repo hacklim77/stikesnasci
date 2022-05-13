@@ -54,7 +54,7 @@
 								</li>
 							<?php endforeach ?>	
 								<li class="more">
-									<a class="link" href="">lainnya <i class="fa fa-angle-right"></i></a>
+									<a class="link" href="<?= base_url('infokampus') ?>">lainnya <i class="fa fa-angle-right"></i></a>
 								</li>
 						</ul>
 					</div>
