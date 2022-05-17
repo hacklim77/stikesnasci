@@ -5,7 +5,3 @@
         </p>
     </div>
 </footer>
-
-</div>
-</div>
-</body>

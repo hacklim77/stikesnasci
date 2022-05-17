@@ -1,3 +1,8 @@
+</div>
+</div>
+
+
+</body>
 <script src="<<?= base_url('assets/js/material.min.js'); ?>" type="text/javascript"></script>
 <!--  Charts Plugin -->
 <script src="<<?= base_url('assets/js/chartist.min.js'); ?>"></script>
@@ -18,3 +23,4 @@
         // alert(tab);                                                   
     });
 </script>
+</html>

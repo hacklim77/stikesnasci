@@ -25,6 +25,16 @@
             return $this->db->get_where('berita', ['tipe_berita' => 'berita'])->num_rows();
         }
 
+        public function getTblBerita()
+        {
+            $this->db->select('*');
+            $this->db->from('berita');
+            $this->db->like('tipe_berita','berita');
+            $this->db->order_by('id_berita','DESC');
+            $query = $this->db->get()->result_array();
+            return $query;
+        }
+
         /* Batas Berita Utama */
 
 
@@ -49,6 +59,16 @@
         public function getInfomhsCount()
         {
             return $this->db->not_like('tipe_berita','berita')->get('berita')->num_rows();
+        }
+
+        public function getTblinfomhs()
+        {
+            $this->db->select('*');
+            $this->db->from('berita');
+            $this->db->not_like('tipe_berita','berita');
+            $this->db->order_by('id_berita','DESC');
+            $query = $this->db->get()->result_array();
+            return $query;
         }
 
         /* Batas Info Kampus */

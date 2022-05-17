@@ -1,5 +1,5 @@
 <!-- <?php 
-    $idu = $_SESSION['login'];
+    /* $idu = $_SESSION['login']; */
 ?> -->
 <style type="text/css">
     ul#main-tab li.actived>a{
@@ -8,7 +8,6 @@
         color: #fff !important;
     }
 </style>
-<div class="sidebar" data-color="purple" data-image="">
 
 <div class="sidebar" data-color="purple" data-image="<?= base_url('assets/img/sidebar-1.jpg') ?>">
     <div class="logo">
@@ -16,18 +15,18 @@
             <img src="<?= base_url('assets/img/logo-stikes.png') ?>" style="max-height: 100px;">
         </a>
     </div>
-    <div class="sidebar-wrapper">
-        <!-- <ul class="nav" id="main-tab" data-tab="<?php echo $menu ?>"> -->
+    <div class="sidebar-wrapper ps-container ps-theme-default ps-active-y">
+        <ul class="nav" id="main-tab" data-tab="<?php /* echo $menu */ ?>">
             <li class="home">
-                <a href="<?= base_url('admin_stksn'); ?>">
+                <a href="<?= base_url('admin'); ?>">
                     <i class="material-icons">dashboard</i>
                     <p>DASHBOARD</p>
                 </a>
             </li>
 
             <?php 
-                $ar = array('1');
-                if (in_array($idu, $ar)) { 
+                /* $ar = array('1');
+                if (in_array($idu, $ar)) { */ 
             ?> 
                 <li>
                     <a href="./user.html">
@@ -35,11 +34,11 @@
                         <p>PROFILE</p>
                     </a>
                 </li>
-            <?php }?>
+            <?php /* } */?>
 
             <?php 
-                $ar = array('1','3','4');
-                if (in_array($idu, $ar)) { 
+                /* $ar = array('1','3','4');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <!-- BERITA & INFO -->
                 <li class="nav-item berita infomhs">
@@ -53,25 +52,25 @@
                     <div class="collapse" id="info-berita" aria-expanded="false">
                         <ul class="nav">
                             <li class="nav-item berita">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/informasi/berita'); ?>">
+                                <a class="nav-link" href="<?= base_url('berita/tblBerita'); ?>">
                                   <span class="sidebar-normal">Berita</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item infomhs">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/informasi/infomhs'); ?>">
+                                <a class="nav-link" href="<?= base_url('infokampus/Infomhs'); ?>">
                                     <span class="sidebar-normal">Info Mahasiswa</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
-            <?php }?>
+            <?php /*  } */?>
 
             <?php 
-                $ar = array('1');
-                if (in_array($idu, $ar)) { 
+               /*  $ar = array('1');
+                if (in_array($idu, $ar)) {  */
             ?>
                 <!-- akademik -->
                 <li class="nav-item ">
@@ -120,11 +119,11 @@
                         </ul>
                     </div>
                 </li>
-            <?php }?>
+            <?php /* } */?>
 
             <?php 
-                $ar = array('1','5');
-                if (in_array($idu, $ar)) { 
+                /* $ar = array('1','5');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <!-- LPPM -->
                 <li class="nav-item lppm_penelitian lppm_pkm lppm_informasi lppm_agenda">
@@ -173,11 +172,11 @@
                         </ul>
                     </div>
                 </li>
-            <?php }?>
+            <?php /*  } */?>
 
             <?php 
-                $ar = array('1','3','4');
-                if (in_array($idu, $ar)) { 
+               /*  $ar = array('1','3','4');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <!-- Kemahasiswaaan -->
                 <li class="nav-item kemahasiswaan_download beasiswa kreativitas skp seminar ukm survey_kemahasiswaan organisasi">
@@ -322,10 +321,10 @@
                         <p>PMB</p>
                     </a>
                 </li> -->
-            <?php }?>
+            <?php /* } */?>
             <?php 
-                $ar = array('1','6');
-                if (in_array($idu, $ar)) { 
+                /* $ar = array('1','6');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <li class="bauk">
                     <a href="<?= base_url('admin_stksn/bauk'); ?>">
@@ -333,10 +332,10 @@
                         <p>BAUK</p>
                     </a>
                 </li>
-            <?php }?>
+            <?php /* } */?>
             <?php 
-                $ar = array('1','7');
-                if (in_array($idu, $ar)) { 
+                /* $ar = array('1','7');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <li class="humas">
                     <a href="<?= base_url('admin_stksn/humas'); ?>">
@@ -344,10 +343,16 @@
                         <p>HUMAS</p>
                     </a>
                 </li>
-            <?php }?>
+            <?php /* } */?>
         </ul>
+        <div class="ps-scrollbar-x-rail">
+            <div class="ps-scrollbar-x"></div>
+        </div>
+        <div class="ps-scrollbar-y-rail">
+            <div class="ps-scrollbar-y"></div>
+        </div>
     </div>
-</div>
+
 
 <script type="text/javascript">
     $( document ).ready(function() {
@@ -355,7 +360,7 @@
         $('ul#main-tab li.'+tab).addClass('actived');                       
         // alert(tab);                                                   
     });
-</script>('assets/img/sidebar-1.jpg');?>">
+</script>
     <div class="logo">
         <a href="#" class="simple-text">
             <img src="<?= base_url('assets/img/logo-stikes.png') ?>" style="max-height: 100px;">
@@ -371,8 +376,8 @@
             </li>
 
             <?php 
-                $ar = array('1');
-                if (in_array($idu, $ar)) { 
+               /*  $ar = array('1');
+                if (in_array($idu, $ar)) { */ 
             ?> 
                 <li>
                     <a href="./user.html">
@@ -380,11 +385,11 @@
                         <p>PROFILE</p>
                     </a>
                 </li>
-            <?php }?>
+            <?php /* } */?>
 
             <?php 
-                $ar = array('1','3','4');
-                if (in_array($idu, $ar)) { 
+               /*  $ar = array('1','3','4');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <!-- BERITA & INFO -->
                 <li class="nav-item berita infomhs">
@@ -412,11 +417,11 @@
                         </ul>
                     </div>
                 </li>
-            <?php }?>
+            <?php /* } */?>
 
             <?php 
-                $ar = array('1');
-                if (in_array($idu, $ar)) { 
+               /*  $ar = array('1');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <!-- akademik -->
                 <li class="nav-item ">
@@ -465,11 +470,11 @@
                         </ul>
                     </div>
                 </li>
-            <?php }?>
+            <?php /* } */?>
 
             <?php 
-                $ar = array('1','5');
-                if (in_array($idu, $ar)) { 
+                /* $ar = array('1','5');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <!-- LPPM -->
                 <li class="nav-item lppm_penelitian lppm_pkm lppm_informasi lppm_agenda">
@@ -518,11 +523,11 @@
                         </ul>
                     </div>
                 </li>
-            <?php }?>
+            <?php /* } */?>
 
             <?php 
-                $ar = array('1','3','4');
-                if (in_array($idu, $ar)) { 
+                /* $ar = array('1','3','4');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <!-- Kemahasiswaaan -->
                 <li class="nav-item kemahasiswaan_download beasiswa kreativitas skp seminar ukm survey_kemahasiswaan organisasi">
@@ -667,10 +672,10 @@
                         <p>PMB</p>
                     </a>
                 </li> -->
-            <?php }?>
+            <?php /* } */?>
             <?php 
-                $ar = array('1','6');
-                if (in_array($idu, $ar)) { 
+                /* $ar = array('1','6');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <li class="bauk">
                     <a href="<?= base_url('admin_stksn/bauk'); ?>">
@@ -678,10 +683,10 @@
                         <p>BAUK</p>
                     </a>
                 </li>
-            <?php }?>
+            <?php /* } */?>
             <?php 
-                $ar = array('1','7');
-                if (in_array($idu, $ar)) { 
+                /* $ar = array('1','7');
+                if (in_array($idu, $ar)) { */ 
             ?>
                 <li class="humas">
                     <a href="<?= base_url('admin_stksn/humas'); ?>">
@@ -689,7 +694,7 @@
                         <p>HUMAS</p>
                     </a>
                 </li>
-            <?php }?>
+            <?php /* } */?>
         </ul>
     </div>
 </div>

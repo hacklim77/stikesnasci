@@ -50,7 +50,7 @@
             $this->pagination->initialize($config);
             
             $data['start'] = $this->uri->segment(3);
-            //$data['mytable'] = $this->Mytable_model->getMytable($config['per_page'],$data['start']);
+
             $data['berita'] = $this->Informasimodel->getBeritaAll($config['per_page'],$data['start']);
             $data['infomhs'] = $this->Informasimodel->getInfomhs();
 
@@ -60,6 +60,25 @@
             $this->load->view('front/templates/indikator',$data);
             $this->load->view('front/berita/index',$data);
             $this->load->view('front/templates/footer');
+        }
+
+        public function tblBerita()
+        {
+            $data['title'] = 'Admin Stikes Nasional | Berita';
+
+            $this->load->view('admin/templates/head',$data);
+            $this->load->view('admin/templates/sidebar.php');
+            $this->load->view('admin/templates/navbar.php');
+            $this->load->view('admin/berita/index');
+            $this->load->view('admin/templates/footer.php');
+            $this->load->view('admin/templates/endscript.php');
+
+        }
+
+        public function dataBerita()
+        {
+            $data = $this->Informasimodel->getTblBerita();
+            echo json_encode($data);
         }
     }
     

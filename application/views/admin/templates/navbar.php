@@ -1,4 +1,4 @@
-<div class="main-panel">
+<div class="main-panel ps-container ps-theme-default ps-active-y">   
 <nav class="navbar navbar-transparent navbar-absolute">
     <div class="container-fluid">
         <div class="navbar-header">

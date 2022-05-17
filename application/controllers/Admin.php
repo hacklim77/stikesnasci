@@ -9,9 +9,12 @@
 
         public function index()
         {
-           $this->load->view('admin/templates/head.php');
+           $data['title'] = 'Admin Stikes Nasional';
+
+           $this->load->view('admin/templates/head',$data);
            $this->load->view('admin/templates/sidebar.php');
            $this->load->view('admin/templates/navbar.php');
+           $this->load->view('admin/dashboard/index',$data);
            $this->load->view('admin/templates/footer.php');
            $this->load->view('admin/templates/endscript.php');
         }

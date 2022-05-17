@@ -61,5 +61,23 @@
             $this->load->view('front/infokampus/index',$data);
             $this->load->view('front/templates/footer');
         }
+
+        public function infoMhs()
+        {
+            $data['title'] = 'Admin Stikes Nasional | Info Mahasiswa';
+
+            $this->load->view('admin/templates/head',$data);
+            $this->load->view('admin/templates/sidebar.php');
+            $this->load->view('admin/templates/navbar.php');
+            $this->load->view('admin/informasi/infomhs');
+            $this->load->view('admin/templates/footer.php');
+            $this->load->view('admin/templates/endscript.php');
+        }
+
+        public function dataInfomhs()
+        {
+            $data = $this->Informasimodel->getTblinfomhs();
+            echo json_encode($data);
+        }
     }
     
