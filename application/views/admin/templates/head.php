@@ -17,8 +17,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 
-    
-
     <script src="<?= base_url('assets/js/jquery-3.2.1.min.js'); ?>" type="text/javascript"></script>
     <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>" type="text/javascript"></script>
     <!-- tagsinput -->
