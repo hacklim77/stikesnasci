@@ -6,7 +6,8 @@
         {
             parent::__construct();
             $this->load->model('Informasimodel');   
-            $this->load->helper('tgl_indo');   
+            $this->load->helper('tgl_indo');
+            $this->load->library('form_validation');   
         }
 
         public function index()
@@ -79,6 +80,26 @@
         {
             $data = $this->Informasimodel->getTblBerita();
             echo json_encode($data);
+        }
+
+        public function tambahBerita()
+        {
+            $data['title'] = 'Admin Stikes Nasional | Berita';
+
+            if ($this->form_validation->run('simpan') == FALSE) {
+                
+                $this->load->view('admin/templates/head',$data);
+                $this->load->view('admin/templates/sidebar.php');
+                $this->load->view('admin/templates/navbar.php');
+                $this->load->view('admin/berita/tambah');
+                $this->load->view('admin/templates/footer.php');
+                $this->load->view('admin/templates/endscript.php');
+            } 
+            else{
+            $this->Informasimodel->insertBerita();
+            //echo json_encode($insert);
+            redirect('berita/tblBerita');
+            }    
         }
     }
     

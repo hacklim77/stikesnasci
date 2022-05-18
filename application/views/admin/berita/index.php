@@ -20,7 +20,7 @@
                                 <h4 class="title">Tabel berita</h4>
                             </div>
                             <div class="col-md-4 text-right">
-                                <a href="#tambah_berita" id="tambah_berita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah berita</a> 
+                                <a href="<?= base_url('berita/tambahBerita') ?>" id="tambah_berita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah berita</a> 
                             </div>
                         </div>
                         <!-- <p class="category">Here is a subtitle for this table</p> -->
@@ -58,11 +58,18 @@
                 "dataSrc" : ""
             },
             "columns" : [
-                
                 {"data" : "judul_berita"},
                 {"data" : "tgl_upload"},
                 {"data" : "tgl_edit"},
-            ]
+            ],
+            columnDefs: [{
+                "targets": 3,
+                "render": function(data, type, row, meta) {
+                    return `<center><a href="#lihatinfo" class="btn btn-sm btn-info btn-lihat-info"><i class="material-icons">visibility</i></a>  
+                            <a href="#hapusinfo" class="btn btn-sm btn-danger btn-hapus-info"><i class="material-icons">delete</i></a></center>`;
+                }
+            }]
         });
     });
 </script>
+

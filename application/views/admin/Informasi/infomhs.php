@@ -20,7 +20,7 @@
                                 <h4 class="title">Tabel Info Mahasiswa</h4>
                             </div>
                             <div class="col-md-4 text-right">
-                                <a href="#tambah_berita" id="tambah_berita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah info</a> 
+                                <a href="<?= base_url('infokampus/tambahinfo') ?>" id="tambah_berita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah info</a> 
                             </div>
                         </div>
                         <!-- <p class="category">Here is a subtitle for this table</p> -->
@@ -37,9 +37,9 @@
                                         <th class="text-center" style="width: 180px" data-orderable="false"><i class="material-icons">settings</i></th>
                                     </tr>
                                 </thead>
-                                <tbody id="show_data">
-                                </tbody>
-
+                                <tbody >
+                                    
+                                </tbody>                                       
                             </table>
                         </div>
                     </div>
@@ -49,19 +49,26 @@
     </div>
 </div>
 
-
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("#dataInfomhs").DataTable({
-            "ajax" : {
-                "url"   : "<?= base_url('Infokampus/datainfoMhs'); ?>",
-                "dataSrc" : ""
-            },
-            "columns" : [
-                {"data" : "judul_berita"},
-                {"data" : "tgl_upload"},
-                {"data" : "tgl_edit"},
-            ]
-        });
+    $(document).ready(function () {
+    $('#dataInfomhs').DataTable({
+        
+        "ajax" : {
+            "url": "<?php echo base_url('Infokampus/datainfoMhs'); ?>",
+            "dataSrc" : ""
+        },
+        "columns" : [
+            { "data" : "judul_berita"},
+            { "data" : "tgl_upload" },
+            { "data" : "tgl_edit" },
+        ],
+        columnDefs: [{
+                "targets": 3,
+                "render": function(data, type, row, meta) {
+                    return `<center><a href="#lihatinfo" class="btn btn-sm btn-info btn-lihat-info"><i class="material-icons">visibility</i></a>  
+                            <a href="#hapusinfo" class="btn btn-sm btn-danger btn-hapus-info"><i class="material-icons">delete</i></a></center>`;
+                }
+            }]
     });
+});
 </script>
