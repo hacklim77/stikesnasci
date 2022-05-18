@@ -4,7 +4,7 @@
     {
         public function index()
         {
-            $this->load->view('user/login');
+            $this->load->view('user/index');
         }
     }
     
