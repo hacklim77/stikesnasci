@@ -35,6 +35,11 @@
             return $query;
         }
 
+        public function detailBerita($judul_berita)
+        {
+            return $this->db->get_where('berita',['judul_berita' => $judul_berita])->row_array();
+        }
+
         public function insertBerita()
         {
             $data = [
@@ -42,7 +47,8 @@
                 "isi_berita" => $this->input->post('isi_berita',true),
                 "tgl_upload" => date('d m Y'),
                 "tgl_edit" => date('d m Y'),
-                "tipe_berita" => 'berita'
+                "tipe_berita" => 'berita',
+                "status" => 1
             ];
 
             $this->db->insert('berita',$data);

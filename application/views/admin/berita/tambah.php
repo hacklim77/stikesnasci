@@ -11,23 +11,25 @@
                 </nav>
             </div>
         </div>
-    <div class="card carea">    
+    <div class="card carea">   
+    <div class="alert alert-success" role="alert" id="success" style="display:none ;"></div> 
     <div class="card-content table-responsive">
+        
         <form method="post" enctype="multipart/form-data" action="" id="createBerita">
             <div class="row">  
                 <div class="col-md-12">
                 
                     <div class="form-group">
                         <label>Judul</label>
-                        <input name="judul_berita" type="text" class="form-control" accept-charset="character_set" value="">
+                        <input name="judul_berita" id="judul_berita" type="text" class="form-control" accept-charset="character_set" value="">
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>gambar cover</label>
                         <input name="gambar" type="file" class="form-control">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label>isi</label>
-                        <textarea name="isi_berita" rows="14" class="form-control textexp"></textarea>
+                        <textarea name="isi_berita" id="isi_berita" rows="14" class="form-control textexp"></textarea>
                     </div>
                     <!-- <div class="form-group">
                         <label>tags</label>
@@ -37,9 +39,11 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="hidden" name="ti" value="">
-                    <input type="hidden" name="ur" value="">
-                    <button name="simpan" type="submit" class="btn btn-primary pull-right">simpan</button>
+                    <input type="hidden" name="tgl_upload" id="tgl_upload">
+                    <input type="hidden" name="tgl_edit" id="tgl_edit">
+                    <input type="hidden" name="tipe_berita" id="tipe_berita">
+                    <input type="hidden" name="status" id="status">
+                    <button name="saveBerita" id="saveBerita" type="submit" class="btn btn-primary pull-right">simpan</button>
                     <a href="" class="btn btn-danger pull-right">Kembali</a>
                 </div>
             </div>
@@ -70,7 +74,53 @@
 </script>
 
 <script src="type/javascript">
-    $('#createBerita').submit(function(event){
+
+    $(document).ready(function() {
+        $('#tambah').on('click',function(){
+            $("#tambah").attr("disabled","disabled");
+            var judul_berita = $('#judul_berita').val();
+            var isi_berita = $('#isi_berita').val();
+            var tgl_upload = $('#tgl_upload').val();
+            var tgl_edit = $('#tgl_edit').val();
+            var tipe_berita = $('#tipe_berita').val();
+            var status = $('#status').val();
+
+            if (judul_berita != "" && isi_berita !="") {
+                $.ajax({
+                    url : "<?= base_url('Berita/tambahBerita'); ?>",
+                    type : "POST",
+                    data : {
+                        judul_berita : judul_berita,
+                        isi_berita : isi_berita,
+                        tgl_upload : tgl_upload,
+                        tgl_edit : tgl_edit,
+                        tipe_berita : tipe_berita,
+                        status : status
+                    },
+
+                    cache : false,
+                    success : function(dataResult){
+                        var dataResult = JSON.parse(dataResult);
+                        if(dataResult.statusCode == 200){
+                            $("#saveBerita").removeAttr("disabled");
+                            $("#createBerita").find('input:text').val('');
+                            $("#success").show();
+                            $("#success").html("Data berita berhasil ditambahkan!");
+                        }
+                        else if(dataResult.statusCode==201){
+                            alert('Error');
+                        }
+                    }
+                })
+            }
+            else{
+                alert('Data tidak boleh kosong');
+            }
+        });
+    });
+
+
+    /* $('#createBerita').submit(function(event){
         event.preventDefault();
 
         $.ajax({
@@ -89,5 +139,5 @@
                 alert('Error');
             }
         });
-    })
+    }) */
 </script>

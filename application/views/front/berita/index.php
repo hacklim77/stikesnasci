@@ -32,7 +32,7 @@
 					<ul class="list-v">
                         <?php foreach ($berita as $key) :?>
 							<li>
-								<a class="link" href="#">
+								<a class="link" href="<?= base_url('Berita/detailBerita') ?>">
 									<?= $key['judul_berita'] ?><br>
 									<small class="fc-grey"><i><?= longdate_indo($key['tgl_upload']) ?></i></small>
 								</a>
