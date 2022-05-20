@@ -20,7 +20,7 @@
                                 <h4 class="title">Tabel berita</h4>
                             </div>
                             <div class="col-md-4 text-right">
-                                <a href="<?= base_url('berita/tambahBerita') ?>" id="tambah_berita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah berita</a> 
+                                <a href="" id="tambahBerita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah berita</a> 
                             </div>
                         </div>
                         <!-- <p class="category">Here is a subtitle for this table</p> -->
@@ -54,7 +54,7 @@
     $(document).ready(function(){
         $("#dataBerita").DataTable({
             "ajax" : {
-                "url"   : "<?= base_url('Berita/dataBerita'); ?>",
+                "url"   : '<?= base_url();?>berita/dataBerita',
                 "dataSrc" : ""
             },
             "columns" : [
@@ -73,3 +73,13 @@
     });
 </script>
 
+<script type="text/javascript">
+    $("#tambahBerita").click(function(){
+        $.ajax({url:'<?= base_url(); ?>berita/tambahBerita',
+            type : "post",
+            success : function(){
+                console.log(url);
+            }
+        });
+    })
+</script>

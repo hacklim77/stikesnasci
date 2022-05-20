@@ -15,6 +15,17 @@
             return $query;
         }
 
+        public function getBeritaside()
+        {
+            $this->db->select('*');
+            $this->db->from('berita');
+            $this->db->like('tipe_berita','berita');
+            $this->db->order_by('id_berita','DESC');
+            $this->db->limit(7);
+            $query = $this->db->get()->result_array();
+            return $query;
+        }
+
         public function getBeritaAll($limit,$start)
         {
             return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'berita'], $limit,$start)->result_array();
@@ -37,7 +48,7 @@
 
         public function detailBerita($judul_berita)
         {
-            return $this->db->get_where('berita',['judul_berita' => $judul_berita])->row_array();
+            return $this->db->get_where('berita',['judul_berita' => $judul_berita]);
         }
 
         public function insertBerita()

@@ -45,7 +45,7 @@
 						<ul class="list-v">
 							<?php foreach ($infomhs as $key) :?>
 								<li>
-									<a class="link" href="#"><?= $key['judul_berita'] ?></a>
+									<a class="link" href="<?= base_url('berita/detailberita/').$key['judul_berita'];?>"><?= $key['judul_berita'] ?></a>
 									
 										<br>
 										<small class="fc-grey">
@@ -72,7 +72,7 @@
 				<div class="row">
 					<?php foreach ($berita as $key) :?>
 						<div class="col-md-6 mb-3">
-							<a href="<?= $key['judul_berita'] ?>" class="fc-main link-2" title="<?= $key['judul_berita']; ?>">
+							<a href="<?= base_url('berita/detailberita/').$key['judul_berita'];?>" class="link" title="<?= $key['judul_berita']; ?>">
 								<div class="news">
 									<div class="news-pict mb-2 b-pict" style="background-image: url('<?= base_url('userfiles/img/'.$key['img_berita']) ?>'); ">
 									</div>

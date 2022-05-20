@@ -10,7 +10,7 @@
             $this->load->library('form_validation');   
         }
 
-        public function index($judul_berita)
+        public function index()
         {
             $data['title'] = 'Berita';
 
@@ -54,7 +54,6 @@
 
             $data['berita'] = $this->Informasimodel->getBeritaAll($config['per_page'],$data['start']);
             $data['infomhs'] = $this->Informasimodel->getInfomhs();
-            $data['berita'] = $this->Informasimodel->detailBerita($judul_berita);
 
             $this->load->view('front/templates/header');
             $this->load->view('front/templates/endscript');
@@ -97,24 +96,27 @@
                 $this->load->view('admin/templates/endscript.php');
             } 
             else{
-            $insert = $this->Informasimodel->insertBerita();
-            echo json_encode($insert);
+            /* $insert = $this->Informasimodel->insertBerita();
+            echo json_encode($insert); */
             //redirect('berita/tblBerita');
             }    
         }
 
         public function detailBerita($judul_berita)
         {
-
+            $judul= urldecode($judul_berita);
             $data['title'] = 'Berita';
-            $data['berita'] = $this->Informasimodel->detailBerita($judul_berita);
-
+            $berita = $this->Informasimodel->detailBerita($judul)->result();
+            $data['berita'] = $berita;
+            $data['listberita'] = $this->Informasimodel->getBeritaside();
             $this->load->view('front/templates/header');
             $this->load->view('front/templates/endscript');
             $this->load->view('front/templates/menu');
             $this->load->view('front/templates/indikator',$data);
             $this->load->view('front/berita/detailberita',$data);
             $this->load->view('front/templates/footer');
+
+            
         }
     }
     
