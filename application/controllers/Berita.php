@@ -6,7 +6,7 @@
         {
             parent::__construct();
             $this->load->model('Informasimodel');   
-            $this->load->helper('tgl_indo');
+            $this->load->helper('tgl_indo','form','url');
             $this->load->library('form_validation');   
         }
 
@@ -66,7 +66,7 @@
         public function tblBerita()
         {
             $data['title'] = 'Admin Stikes Nasional | Berita';
-
+            $data['berita'] = $this->Informasimodel->getTblBerita();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -84,10 +84,12 @@
 
         public function tambahBerita()
         {
-            $data['title'] = 'Admin Stikes Nasional | Berita';
+            $this->form_validation->set_rules('judul_berita','Judul Berita','required');
+			$this->form_validation->set_rules('isi_berita','Isi','required');
+			/* $this->form_validation->set_rules('prodi','prodi','required'); */    
 
             if ($this->form_validation->run('simpan') == FALSE) {
-                
+                $data['title'] = 'Admin Stikes Nasional | Berita';
                 $this->load->view('admin/templates/head',$data);
                 $this->load->view('admin/templates/sidebar.php');
                 $this->load->view('admin/templates/navbar.php');
@@ -96,9 +98,8 @@
                 $this->load->view('admin/templates/endscript.php');
             } 
             else{
-            /* $insert = $this->Informasimodel->insertBerita();
-            echo json_encode($insert); */
-            //redirect('berita/tblBerita');
+            $this->Informasimodel->insertBerita();
+            redirect('berita/tblBerita');
             }    
         }
 
@@ -115,8 +116,7 @@
             $this->load->view('front/templates/indikator',$data);
             $this->load->view('front/berita/detailberita',$data);
             $this->load->view('front/templates/footer');
-
-            
         }
+
     }
     

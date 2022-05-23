@@ -55,14 +55,32 @@
         {
             $data = [
                 "judul_berita" => $this->input->post('judul_berita',true),
+                "img_berita" => $this->upload_image(),
                 "isi_berita" => $this->input->post('isi_berita',true),
-                "tgl_upload" => date('d m Y'),
-                "tgl_edit" => date('d m Y'),
+                "tgl_upload" => date('Ymd'),
+                "tgl_edit" => date('Ymd'),
                 "tipe_berita" => 'berita',
                 "status" => 1
             ];
 
             $this->db->insert('berita',$data);
+        }
+
+        public function updateBerita()
+        {
+            $data = [
+                "judul_berita" => $this->input->post('judul_berita',true),
+                //"img_berita" => $this->upload_image(),
+                "isi_berita" => $this->input->post('isi_berita',true)
+            ];
+
+            if($this->upload_image() != null){
+                $data['img_berita'] = $this->upload_image();
+            }
+
+            $this->db->set($data);
+            $this->db->where('id_berita', $this->input->post('id_berita'));
+            $this->db->update('berita',$data);
         }
 
         //////////////////////////////////////////////////////////* Batas Berita Utama *//////////////////////////////////////////////////////////
@@ -125,4 +143,22 @@
         }
 
         ///////////////////////////////////////////////////////////* Batas Data BAUK *///////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////* Private Upload Image *///////////////////////////////////////////////////////////
+
+        private function upload_image()
+        {
+            $config['upload_path']      = './userfiles/img/';
+            $config['allowed_types']    = 'gif|jpg|png|jpeg';
+            $config['overwrite']		= true;
+            $config['max_size']         = 1048576;
+            $config['file_name']        = 'info_berita-'.date('Y-M-d');
+
+            $this->load->library('upload',$config);
+			if($this->upload->do_upload('gambar')){
+				return $this->upload->data("file_name");
+			}
+        }
+
+        ///////////////////////////////////////////////////////////* Batas Private Upload Image *///////////////////////////////////////////////////////////
     }

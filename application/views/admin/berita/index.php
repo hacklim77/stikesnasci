@@ -20,7 +20,7 @@
                                 <h4 class="title">Tabel berita</h4>
                             </div>
                             <div class="col-md-4 text-right">
-                                <a href="" id="tambahBerita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah berita</a> 
+                                <a href="<?= base_url('berita/tambahberita') ?>" id="tambahBerita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah berita</a> 
                             </div>
                         </div>
                         <!-- <p class="category">Here is a subtitle for this table</p> -->
@@ -58,22 +58,57 @@
                 "dataSrc" : ""
             },
             "columns" : [
+                /* { data: null, render: function ( data, type, row ) {
+                    return data.id_berita;
+                } }, */
                 {"data" : "judul_berita"},
                 {"data" : "tgl_upload"},
                 {"data" : "tgl_edit"},
+                /* {
+                     "data" : null,
+                    className: "btn btn-sm btn-info btn-lihat-info",
+                    defaultContent: '<i class="material-icons">visibility</i>',
+                    url: ""
+                },
+                {
+                    "data" : null,
+                    className: "btn btn-sm btn-danger btn-hapus-info",
+                    defaultContent: '<i class="material-icons">delete</i></a></center>',
+                    url: ""
+                } */
             ],
             columnDefs: [{
                 "targets": 3,
                 "render": function(data, type, row, meta) {
-                    return `<center><a href="#lihatinfo" class="btn btn-sm btn-info btn-lihat-info"><i class="material-icons">visibility</i></a>  
+                    return `<center><a href="" class="btn btn-sm btn-info btn-lihat-info"><i class="material-icons">visibility</i></a>  
                             <a href="#hapusinfo" class="btn btn-sm btn-danger btn-hapus-info"><i class="material-icons">delete</i></a></center>`;
                 }
             }]
         });
+
+        $('#dataBerita').on('draw.dt', function(){
+            $('#dataBerita').Tabledit({
+            url:'<?= base_url('berita/editberita') ?>',
+            dataType:'json',
+            columns:{
+                identifier : ['id_berita'],
+                editable:[['id_berita']]
+            },
+            restoreButton:false,
+            onSuccess:function(data, textStatus, jqXHR)
+            {
+                if(data.action == 'delete')
+                {
+                $('<?= base_url('berita/hapusberita') ?>' + data.id).remove();
+                $('#dataBerita').DataTable().ajax.reload();
+                }
+            }
+            });
+            });
     });
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $("#tambahBerita").click(function(){
         $.ajax({url:'<?= base_url(); ?>berita/tambahBerita',
             type : "post",
@@ -82,4 +117,4 @@
             }
         });
     })
-</script>
+</script> -->

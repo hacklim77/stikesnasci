@@ -13,9 +13,16 @@
         </div>
     <div class="card carea">   
     <div class="alert alert-success" role="alert" id="success" style="display:none ;"></div> 
-    <div class="card-content table-responsive">
-        
-        <form method="post" enctype="multipart/form-data" action="" id="createBerita">
+    <div class="card-header" data-background-color="purple">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="title">Tambah Berita</h4>
+            </div>
+        </div>
+        <!-- <p class="category">Here is a subtitle for this table</p> -->
+    </div>
+    <div class="card-content table-responsive">   
+        <form method="post" enctype="multipart/form-data" action="<?= base_url('berita/tambahBerita') ?>">
             <div class="row">  
                 <div class="col-md-12">
                 
@@ -28,6 +35,10 @@
                         <input name="gambar" type="file" class="form-control">
                     </div> -->
                     <div class="form-group">
+                        <label>Gambar Cover</label>
+                        <input name="gambar" type="file" class="form-control" style="opacity: 1; margin-top:20px">
+                    </div>
+                    <div class="form-group">
                         <label>isi</label>
                         <textarea name="isi_berita" id="isi_berita" rows="14" class="form-control textexp"></textarea>
                     </div>
@@ -39,11 +50,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="hidden" name="tgl_upload" id="tgl_upload">
-                    <input type="hidden" name="tgl_edit" id="tgl_edit">
-                    <input type="hidden" name="tipe_berita" id="tipe_berita">
-                    <input type="hidden" name="status" id="status">
-                    <button name="saveBerita" id="saveBerita" type="submit" class="btn btn-primary pull-right">simpan</button>
+                    <button name="saveBerita" type="submit" class="btn btn-primary pull-right">simpan</button>
                     <a href="" class="btn btn-danger pull-right">Kembali</a>
                 </div>
             </div>
@@ -73,7 +80,7 @@
     });
 </script>
 
-<script src="type/javascript">
+<!-- <script src="type/javascript">
 
     $(document).ready(function() {
         $('#tambah').on('click',function(){
@@ -140,4 +147,4 @@
             }
         });
     }) */
-</script>
+</script> -->

@@ -11,6 +11,7 @@
     <link href="<?= base_url('assets/css/a-main.css?v=5'); ?>" rel="stylesheet" />
     <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+    <
     <!--  Material Dashboard CSS    -->
     <link href="<?= base_url('assets/css/material-dashboard.css?v=1.2.2'); ?>" rel="stylesheet" />
     <!--     Fonts and icons     -->
@@ -23,6 +24,7 @@
     <!-- <script src="<?php /* base_url('assets/js/tagsinput.js'); */ ?>" type="text/javascript"></script> -->
     <!-- <script src="<?php /* base_url('assets/js/tagsinput/tagsinput.js'); */ ?>" type="text/javascript"></script> -->
     <!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> -->
+    
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
     <link href="<?= base_url('assets/css/util.css'); ?>" rel="stylesheet" />
