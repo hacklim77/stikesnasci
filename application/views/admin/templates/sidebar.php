@@ -1,13 +1,7 @@
 <!-- <?php 
     /* $idu = $_SESSION['login']; */
 ?> -->
-<style type="text/css">
-    ul#main-tab li.actived>a{
-        background-color: #9c27b0;
-        box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
-        color: #fff !important;
-    }
-</style>
+
 
 <div class="sidebar" data-color="purple" data-image="<?= base_url('assets/img/sidebar-1.jpg') ?>">
     <div class="logo">
@@ -354,13 +348,8 @@
     </div>
 
 
-<script type="text/javascript">
-    $( document ).ready(function() {
-        var tab = $('ul#main-tab').data('tab');
-        $('ul#main-tab li.'+tab).addClass('actived');                       
-        // alert(tab);                                                   
-    });
-</script>
+
+
     <div class="logo">
         <a href="#" class="simple-text">
             <img src="<?= base_url('assets/img/logo-stikes.png') ?>" style="max-height: 100px;">

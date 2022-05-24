@@ -30,6 +30,7 @@
                             <table cellspacing="0" class="table table-striped table-bordered" id="dataBerita" width="100%">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>Judul</th>
                                         <th>tgl unggah</th>
                                         <th>tgl edit</th>
@@ -37,7 +38,20 @@
                                         <th class="text-center" style="width: 180px" data-orderable="false"><i class="material-icons">settings</i></th>
                                     </tr>
                                 </thead>
-                                <tbody id="show_data">
+                                <tbody>
+                                    <?php $no=1; foreach ($berita as $key) :?>
+                                        <tr>
+                                            <td align="center"><?= $no++ ?></td>
+                                            <td><?= $key['judul_berita'] ?></td>
+                                            <td><?= $key['tgl_upload'] ?></td>
+                                            <td><?= $key['tgl_edit'] ?></td>
+                                            <td colspan="2" align="center">
+                                                <a href="<?= base_url('berita/editberita/'.$key['id_berita']) ?>" class="btn btn-sm btn-info btn-lihat-info"><i class="material-icons">visibility</i></a>
+                                                <a id="<?= $key['id_berita'] ?>" class="btn btn-sm btn-danger btn-hapus-info"><i class="material-icons">delete</i></a>
+                                          
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
                                 </tbody>
 
                             </table>
@@ -49,72 +63,22 @@
     </div>
 </div>
 
-
 <script type="text/javascript">
-    $(document).ready(function(){
-        $("#dataBerita").DataTable({
-            "ajax" : {
-                "url"   : '<?= base_url();?>berita/dataBerita',
-                "dataSrc" : ""
-            },
-            "columns" : [
-                /* { data: null, render: function ( data, type, row ) {
-                    return data.id_berita;
-                } }, */
-                {"data" : "judul_berita"},
-                {"data" : "tgl_upload"},
-                {"data" : "tgl_edit"},
-                /* {
-                     "data" : null,
-                    className: "btn btn-sm btn-info btn-lihat-info",
-                    defaultContent: '<i class="material-icons">visibility</i>',
-                    url: ""
-                },
-                {
-                    "data" : null,
-                    className: "btn btn-sm btn-danger btn-hapus-info",
-                    defaultContent: '<i class="material-icons">delete</i></a></center>',
-                    url: ""
-                } */
-            ],
-            columnDefs: [{
-                "targets": 3,
-                "render": function(data, type, row, meta) {
-                    return `<center><a href="" class="btn btn-sm btn-info btn-lihat-info"><i class="material-icons">visibility</i></a>  
-                            <a href="#hapusinfo" class="btn btn-sm btn-danger btn-hapus-info"><i class="material-icons">delete</i></a></center>`;
-                }
-            }]
-        });
-
-        $('#dataBerita').on('draw.dt', function(){
-            $('#dataBerita').Tabledit({
-            url:'<?= base_url('berita/editberita') ?>',
-            dataType:'json',
-            columns:{
-                identifier : ['id_berita'],
-                editable:[['id_berita']]
-            },
-            restoreButton:false,
-            onSuccess:function(data, textStatus, jqXHR)
-            {
-                if(data.action == 'delete')
-                {
-                $('<?= base_url('berita/hapusberita') ?>' + data.id).remove();
-                $('#dataBerita').DataTable().ajax.reload();
-                }
-            }
-            });
-            });
-    });
+         $('#dataBerita').DataTable();
 </script>
 
-<!-- <script type="text/javascript">
-    $("#tambahBerita").click(function(){
-        $.ajax({url:'<?= base_url(); ?>berita/tambahBerita',
-            type : "post",
-            success : function(){
-                console.log(url);
-            }
-        });
-    })
-</script> -->
+<script>
+    $(document).on('click', 'delete', function(){
+    var id = $(this).attr('id_berita');
+    $.ajax({
+        type: 'POST',
+        url: "<?= base_url('berita/deleteBerita') ?>",
+        data: {id:id_berita},
+        success: function() {
+            $('#dataBerita').load("<?= base_url('berita/tblBerita') ?>");
+        }, error: function(response){
+            console.log(response.responseText);
+        }
+    });
+});
+</script>

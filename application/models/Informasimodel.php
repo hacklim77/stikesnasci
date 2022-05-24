@@ -15,6 +15,11 @@
             return $query;
         }
 
+        public function getBeritaID($id)
+        {
+            return $this->db->get_where('berita',['id_berita' => $id])->row_array();
+        }
+
         public function getBeritaside()
         {
             $this->db->select('*');
@@ -66,7 +71,7 @@
             $this->db->insert('berita',$data);
         }
 
-        public function updateBerita()
+        public function updateBerita($id)
         {
             $data = [
                 "judul_berita" => $this->input->post('judul_berita',true),
@@ -74,13 +79,19 @@
                 "isi_berita" => $this->input->post('isi_berita',true)
             ];
 
-            if($this->upload_image() != null){
+            /* if($this->upload_image() != null){
                 $data['img_berita'] = $this->upload_image();
-            }
+            } */
 
-            $this->db->set($data);
-            $this->db->where('id_berita', $this->input->post('id_berita'));
+            //$this->db->set($data);
+            $this->db->where('id_berita', $id);
             $this->db->update('berita',$data);
+        }
+
+        public function delBerita($id)
+        {
+			$this->db->where('id_berita',$id);
+			$this->db->delete('berita');
         }
 
         //////////////////////////////////////////////////////////* Batas Berita Utama *//////////////////////////////////////////////////////////

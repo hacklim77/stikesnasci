@@ -28,7 +28,7 @@
                 
                     <div class="form-group">
                         <label>Judul</label>
-                        <input name="judul_berita" id="judul_berita" type="text" class="form-control" accept-charset="character_set" value="">
+                        <input name="judul_berita" id="judul_berita" type="text" class="form-control" accept-charset="character_set">
                     </div>
                     <!-- <div class="form-group">
                         <label>gambar cover</label>

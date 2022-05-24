@@ -67,20 +67,24 @@
         {
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['berita'] = $this->Informasimodel->getTblBerita();
+            
+
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
-            $this->load->view('admin/berita/index');
+            $this->load->view('admin/berita/index',$data);
             $this->load->view('admin/templates/footer.php');
             $this->load->view('admin/templates/endscript.php');
 
+            //echo json_encode($data);
+
         }
 
-        public function dataBerita()
+        /* public function dataBerita()
         {
             $data = $this->Informasimodel->getTblBerita();
             echo json_encode($data);
-        }
+        } */
 
         public function tambahBerita()
         {
@@ -88,7 +92,7 @@
 			$this->form_validation->set_rules('isi_berita','Isi','required');
 			/* $this->form_validation->set_rules('prodi','prodi','required'); */    
 
-            if ($this->form_validation->run('simpan') == FALSE) {
+            if ($this->form_validation->run('saveBerita') == FALSE) {
                 $data['title'] = 'Admin Stikes Nasional | Berita';
                 $this->load->view('admin/templates/head',$data);
                 $this->load->view('admin/templates/sidebar.php');
@@ -101,6 +105,46 @@
             $this->Informasimodel->insertBerita();
             redirect('berita/tblBerita');
             }    
+        }
+
+        public function editBerita($id)
+        {
+            $this->form_validation->set_rules('judul_berita','Judul Berita','required');
+			//$this->form_validation->set_rules('isi_berita','Isi','required');
+			/* $this->form_validation->set_rules('prodi','prodi','required'); */    
+
+            if ($this->form_validation->run() == FALSE) {
+                $data['title'] = 'Admin Stikes Nasional | Berita';
+                $data['berita'] = $this->Informasimodel->getBeritaID($id);
+
+                $this->load->view('admin/templates/head',$data);
+                $this->load->view('admin/templates/sidebar.php');
+                $this->load->view('admin/templates/navbar.php');
+                $this->load->view('admin/berita/edit',$data);
+                $this->load->view('admin/templates/footer.php');
+                $this->load->view('admin/templates/endscript.php');
+            } 
+            else{
+            $u = $this->Informasimodel->updateBerita();
+            redirect('berita/tblBerita',$u);
+            }    
+        }
+
+        public function deleteBerita()
+        {
+            $data['title'] = 'Admin Stikes Nasional | Berita';
+            $data['berita'] = $this->Informasimodel->getTblBerita();
+            
+
+            $this->load->view('admin/templates/head',$data);
+            $this->load->view('admin/templates/sidebar.php');
+            $this->load->view('admin/templates/navbar.php');
+            $this->load->view('admin/berita/index',$data);
+            $this->load->view('admin/templates/footer.php');
+            $this->load->view('admin/templates/endscript.php');
+
+            $h = $this->informasimodel->delBerita();
+            echo json_encode($h);
         }
 
         public function detailBerita($judul_berita)

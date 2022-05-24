@@ -1,6 +1,14 @@
 </div>
 </div>
 
+
+
+
+</body>
+
+
+</html>
+<!--   Core JS Files   -->
 <script src="<?= base_url('assets/js/material.min.js'); ?>" type="text/javascript"></script>
 <!--  Charts Plugin -->
 <script src="<?= base_url('assets/js/chartist.min.js'); ?>"></script>
@@ -15,6 +23,9 @@
 <!-- Material Dashboard javascript methods -->
 <script src="<?= base_url('assets/js/material-dashboard.js?v=1.2.0'); ?>"></script>
 
+
+
+
 <script type="text/javascript">
     $( document ).ready(function() {
         var tab = $('ul#main-tab').data('tab');
@@ -22,10 +33,3 @@
         // alert(tab);                                                   
     });
 </script>
-
-
-</body>
-
-
-
-</html>
