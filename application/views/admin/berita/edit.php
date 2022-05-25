@@ -22,8 +22,8 @@
         <!-- <p class="category">Here is a subtitle for this table</p> -->
     </div>
     <div class="card-content table-responsive">   
-        <form method="post" enctype="multipart/form-data" action="<?= base_url('berita/editBerita/') ?>">
-            <input type="hidden" value="<?= $berita['id_berita']; ?>" id="id_berita">
+        <form method="post" enctype="multipart/form-data" action="<?= base_url('berita/editBerita') ?>">
+            <input type="hidden" value="<?= $berita['id_berita']; ?>" name="id_berita">
             <div class="row">  
                 <div class="col-md-12">
                     

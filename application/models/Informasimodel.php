@@ -17,7 +17,7 @@
 
         public function getBeritaID($id)
         {
-            return $this->db->get_where('berita',['id_berita' => $id])->row_array();
+            return $this->db->get_where('berita',['id_berita' => $id]);
         }
 
         public function getBeritaside()
@@ -71,20 +71,22 @@
             $this->db->insert('berita',$data);
         }
 
-        public function updateBerita($id)
+        public function updateBerita()
         {
             $data = [
                 "judul_berita" => $this->input->post('judul_berita',true),
                 //"img_berita" => $this->upload_image(),
-                "isi_berita" => $this->input->post('isi_berita',true)
+                "isi_berita" => $this->input->post('isi_berita',true),
+                "tgl_edit" => date('Ymd')
+
             ];
 
-            /* if($this->upload_image() != null){
+            if($this->upload_image() != null){
                 $data['img_berita'] = $this->upload_image();
-            } */
-
+            }
+            
             //$this->db->set($data);
-            $this->db->where('id_berita', $id);
+            $this->db->where('id_berita',$this->input->post('id_berita'));
             $this->db->update('berita',$data);
         }
 
@@ -159,11 +161,12 @@
 
         private function upload_image()
         {
+            date_default_timezone_set("ASIA/JAKARTA");
             $config['upload_path']      = './userfiles/img/';
             $config['allowed_types']    = 'gif|jpg|png|jpeg';
             $config['overwrite']		= true;
             $config['max_size']         = 1048576;
-            $config['file_name']        = 'info_berita-'.date('Y-M-d');
+            $config['file_name']        = 'info_berita-'.date('Y-M-d-H-i-s');
 
             $this->load->library('upload',$config);
 			if($this->upload->do_upload('gambar')){
@@ -172,4 +175,9 @@
         }
 
         ///////////////////////////////////////////////////////////* Batas Private Upload Image *///////////////////////////////////////////////////////////
+
+        public function typeBerita()
+        {
+            
+        }
     }

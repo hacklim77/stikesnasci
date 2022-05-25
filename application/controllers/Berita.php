@@ -76,8 +76,6 @@
             $this->load->view('admin/templates/footer.php');
             $this->load->view('admin/templates/endscript.php');
 
-            //echo json_encode($data);
-
         }
 
         /* public function dataBerita()
@@ -91,6 +89,16 @@
             $this->form_validation->set_rules('judul_berita','Judul Berita','required');
 			$this->form_validation->set_rules('isi_berita','Isi','required');
 			/* $this->form_validation->set_rules('prodi','prodi','required'); */    
+
+            /* switch ($data) {
+                case 'value':
+                    # code...
+                    break;
+                
+                default:
+                    # code...
+                    break;
+            } */
 
             if ($this->form_validation->run('saveBerita') == FALSE) {
                 $data['title'] = 'Admin Stikes Nasional | Berita';
@@ -110,12 +118,12 @@
         public function editBerita($id)
         {
             $this->form_validation->set_rules('judul_berita','Judul Berita','required');
-			//$this->form_validation->set_rules('isi_berita','Isi','required');
+			$this->form_validation->set_rules('isi_berita','Isi','required');
 			/* $this->form_validation->set_rules('prodi','prodi','required'); */    
 
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Admin Stikes Nasional | Berita';
-                $data['berita'] = $this->Informasimodel->getBeritaID($id);
+                $data['berita'] = $this->Informasimodel->getBeritaID($id)->row_array();
 
                 $this->load->view('admin/templates/head',$data);
                 $this->load->view('admin/templates/sidebar.php');
@@ -130,7 +138,7 @@
             }    
         }
 
-        public function deleteBerita()
+        public function deleteBerita($id)
         {
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['berita'] = $this->Informasimodel->getTblBerita();
@@ -143,8 +151,8 @@
             $this->load->view('admin/templates/footer.php');
             $this->load->view('admin/templates/endscript.php');
 
-            $h = $this->informasimodel->delBerita();
-            echo json_encode($h);
+            $this->Informasimodel->delBerita($id);
+            redirect('berita/tblBerita');
         }
 
         public function detailBerita($judul_berita)

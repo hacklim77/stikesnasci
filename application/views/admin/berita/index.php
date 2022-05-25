@@ -47,7 +47,8 @@
                                             <td><?= $key['tgl_edit'] ?></td>
                                             <td colspan="2" align="center">
                                                 <a href="<?= base_url('berita/editberita/'.$key['id_berita']) ?>" class="btn btn-sm btn-info btn-lihat-info"><i class="material-icons">visibility</i></a>
-                                                <a id="<?= $key['id_berita'] ?>" class="btn btn-sm btn-danger btn-hapus-info"><i class="material-icons">delete</i></a>
+                                                
+                                                <a onclick="deleteConfirm('<?= base_url('berita/deleteBerita/'.$key['id_berita']) ?>')" href="#!" class="btn btn-sm btn-danger btn-hapus-info"><i class="material-icons">delete</i></a>
                                           
                                             </td>
                                         </tr>
@@ -57,6 +58,51 @@
                             </table>
                         </div>
                     </div>
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Yakin ingin menghapus berita ini?</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">Data yang dihapus tidak akan bisa dikembalikan.</div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                    <a id="btn-delete" class="btn btn-danger" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                    <!-- <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Hapus Data Berita</h4>
+                                </div>
+                                <form class="form-horizontal">
+                                    <div class="modal-body">
+                                    <input type="hidden" name="id_berita" id="id_berita" value="">
+                                    <div class="alert alert-danger"><p>Apakah Anda yakin mau memhapus berita ini?</p></div>   
+                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                    <button class="btn_hapus btn btn-danger" id="btn_hapus">Hapus</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <form method="post" id="delform">
+                        <?php foreach ($berita as $key) :?>
+                        <p>Yakin ingin menghapus berita "<?= $key->judul_berita;?>"</p>
+                        <input type="hidden" name="id_berita" value="<?= $key->id_berita;?>">
+                        <?php endforeach ?>
+                        <button id="tombol_hapus" type="button" class="btn btn-danger" data-dismiss="modal" >Hapus</button>                            
+                    </form> -->
+
                 </div>
             </div>
         </div>
@@ -67,18 +113,52 @@
          $('#dataBerita').DataTable();
 </script>
 
+<!-- <script>
+    $('#dataBerita').on('click','.item_hapus',function(){
+            var id=$(this).attr('data');
+            $('#ModalHapus').modal('show');
+            $('[name="id_berita"]').val(id);
+        });
+    
+    $('#btn_hapus').on('click',function(e){
+        e.preventDefault();
+        var id=$('#id_berita').val();
+        $.ajax({
+        type : "POST",
+        url  : "<?php echo base_url()?>berita/deleteBerita",
+          data : {id: id},
+            success: function(data){
+                    $('#ModalHapus').modal('hide');
+                    berita();
+            }
+          });
+        });
+</script> -->
+
 <script>
-    $(document).on('click', 'delete', function(){
-    var id = $(this).attr('id_berita');
-    $.ajax({
-        type: 'POST',
-        url: "<?= base_url('berita/deleteBerita') ?>",
-        data: {id:id_berita},
-        success: function() {
-            $('#dataBerita').load("<?= base_url('berita/tblBerita') ?>");
-        }, error: function(response){
-            console.log(response.responseText);
-        }
-    });
-});
+    function deleteConfirm(url){
+        $(document).ready(function(){
+            $('#btn-delete').attr('href', url);
+            $('#deleteModal').modal();
+        })
+    }
 </script>
+
+<!-- <script type="text/javascript">
+        $(document).ready(function(){
+            $("#tombol_hapus").click(function(){
+                var data = $('#delform').serialize();
+                $.ajax({
+                    type	: 'POST',
+                    url	: "<?php echo base_url(); ?>/berita/deleteBerita",
+                    data: data,
+
+                    cache	: false,
+                    success	: function(data){
+                        $('#dataBerita').load("<?php echo base_url(); ?>/berita/tblBerita");
+                      
+                    }
+                });
+            });
+        });
+</script> -->
