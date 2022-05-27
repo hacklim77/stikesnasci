@@ -84,28 +84,21 @@
             echo json_encode($data);
         } */
 
-        public function tambahBerita()
+        public function tambahBerita($tb = '',$id='')
         {
             $this->form_validation->set_rules('judul_berita','Judul Berita','required');
 			$this->form_validation->set_rules('isi_berita','Isi','required');
-			/* $this->form_validation->set_rules('prodi','prodi','required'); */    
+			
 
-            /* switch ($data) {
-                case 'value':
-                    # code...
-                    break;
-                
-                default:
-                    # code...
-                    break;
-            } */
 
             if ($this->form_validation->run('saveBerita') == FALSE) {
                 $data['title'] = 'Admin Stikes Nasional | Berita';
+                $data['tipe'] = 'berita';
+
                 $this->load->view('admin/templates/head',$data);
                 $this->load->view('admin/templates/sidebar.php');
                 $this->load->view('admin/templates/navbar.php');
-                $this->load->view('admin/berita/tambah');
+                $this->load->view('admin/berita/tambah.php',$data);
                 $this->load->view('admin/templates/footer.php');
                 $this->load->view('admin/templates/endscript.php');
             } 

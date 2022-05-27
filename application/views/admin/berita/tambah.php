@@ -1,3 +1,6 @@
+<?php
+    echo $tipe;
+?>
 <div class="content mhl-ft">
     <div class="container-fluid">
         <div class="row">
@@ -22,7 +25,7 @@
         <!-- <p class="category">Here is a subtitle for this table</p> -->
     </div>
     <div class="card-content table-responsive">   
-        <form method="post" enctype="multipart/form-data" action="<?= base_url('berita/tambahBerita') ?>">
+        <form method="post" enctype="multipart/form-data" action="<?= base_url('berita/tambahBerita/') ?>">
             <div class="row">  
                 <div class="col-md-12">
                 
