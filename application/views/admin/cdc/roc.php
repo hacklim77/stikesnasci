@@ -17,10 +17,10 @@
                     <div class="card-header" data-background-color="purple">
                         <div class="row">
                             <div class="col-md-8">
-                                <h4 class="title">Tabel <?php print_r($tipe[1]) ?></h4>
+                                <h4 class="title">Tabel Recruitmen on Campus</h4>
                             </div>
                             <div class="col-md-4 text-right">
-                                <a href="<?= base_url('berita/tambahberita') ?>" id="tambahBerita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah info</a> 
+                                <a href="<?= base_url('berita/tambahberita') ?>" id="tambahBerita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah ROC</a> 
                             </div>
                         </div>
                         <!-- <p class="category">Here is a subtitle for this table</p> -->
@@ -47,6 +47,7 @@
                                             <td><?= $key['tgl_edit'] ?></td>
                                             <td colspan="2" align="center">
                                                 <a href="<?= base_url('berita/editberita/'.$key['id_berita']) ?>" class="btn btn-sm btn-info btn-lihat-info"><i class="material-icons">visibility</i></a>
+                                                
                                                 <a onclick="deleteConfirm('<?= base_url('berita/deleteBerita/'.$key['id_berita']) ?>')" href="#!" class="btn btn-sm btn-danger btn-hapus-info"><i class="material-icons">delete</i></a>
                                           
                                             </td>

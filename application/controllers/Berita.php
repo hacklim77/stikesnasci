@@ -78,13 +78,26 @@
 
         }
 
-        /* public function dataBerita()
+        public function tblInfomhs()
         {
-            $data = $this->Informasimodel->getTblBerita();
-            echo json_encode($data);
-        } */
+            $data['title'] = 'Admin Stikes Nasional | Berita';
+            $data['tipe'] = ['berita','info_mhs','bauk','humas', //0,1,2,3
+                'lppm_informasi','lppm_pkm','lppm_agenda','lppm_penelitian','jurnal', //4,5,6,7,8
+                'beasiswa','hibah_mahasiswa','skp','alumni','seminar_workshop','ukm','organisasi','survey_kemahasiswaan','download_mhs', //9,10,11,12,13,14,15,16,17
+                'roc','tracer_study','informasi','benchmarking','cdc_loker','download_cdc' //18,19,20,21,22,23
+                ];
+            $data['berita'] = $data = $this->Informasimodel->getTblinfomhs();
+            
+            $this->load->view('admin/templates/head',$data);
+            $this->load->view('admin/templates/sidebar.php');
+            $this->load->view('admin/templates/navbar.php');
+            $this->load->view('admin/berita/infomhs',$data);
+            $this->load->view('admin/templates/footer.php');
+            $this->load->view('admin/templates/endscript.php');
 
-        public function tambahBerita($tb = '',$id='')
+        }
+
+        public function tambahBerita()
         {
             $this->form_validation->set_rules('judul_berita','Judul Berita','required');
 			$this->form_validation->set_rules('isi_berita','Isi','required');
@@ -92,19 +105,30 @@
 
 
             if ($this->form_validation->run('saveBerita') == FALSE) {
-                $data['title'] = 'Admin Stikes Nasional | Berita';
-                $data['tipe'] = 'berita';
-
+                $data['title'] = 'Admin Stikes Nasional | Tambah';
+                
+                $data['tipe'] = ['berita','info_mhs','bauk','humas', //0,1,2,3
+                'lppm_informasi','lppm_pkm','lppm_agenda','lppm_penelitian','jurnal', //4,5,6,7,8
+                'beasiswa','hibah_mahasiswa','skp','alumni','seminar_workshop','ukm','organisasi','survey_kemahasiswaan','download_mhs', //9,10,11,12,13,14,15,16,17
+                'roc','tracer_study','informasi','benchmarking','cdc_loker','download_cdc' //18,19,20,21,22,23
+                ];
+ 
                 $this->load->view('admin/templates/head',$data);
                 $this->load->view('admin/templates/sidebar.php');
                 $this->load->view('admin/templates/navbar.php');
-                $this->load->view('admin/berita/tambah.php',$data);
+                
+                if ($data['tipe'] = 'berita') {
+                    $this->load->view('admin/berita/tambah',$data);                    
+                } elseif ($data['tipe'] = 'info_mhs') {
+                    $this->load->view('admin/informasi/tambah',$data);
+                }
+                
                 $this->load->view('admin/templates/footer.php');
                 $this->load->view('admin/templates/endscript.php');
             } 
             else{
-            $this->Informasimodel->insertBerita();
-            redirect('berita/tblBerita');
+                $this->Informasimodel->insertBerita();
+                redirect('berita/tblBerita');
             }    
         }
 
@@ -115,7 +139,7 @@
 			/* $this->form_validation->set_rules('prodi','prodi','required'); */    
 
             if ($this->form_validation->run() == FALSE) {
-                $data['title'] = 'Admin Stikes Nasional | Berita';
+                $data['title'] = 'Admin Stikes Nasional | Edit';
                 $data['berita'] = $this->Informasimodel->getBeritaID($id)->row_array();
 
                 $this->load->view('admin/templates/head',$data);
@@ -162,6 +186,8 @@
             $this->load->view('front/berita/detailberita',$data);
             $this->load->view('front/templates/footer');
         }
+
+        
 
     }
     

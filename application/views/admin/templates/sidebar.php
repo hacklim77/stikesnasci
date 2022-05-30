@@ -53,7 +53,7 @@
                         </ul>
                         <ul class="nav">
                             <li class="nav-item infomhs">
-                                <a class="nav-link" href="<?= base_url('infokampus/Infomhs'); ?>">
+                                <a class="nav-link" href="<?= base_url('berita/tblInfomhs'); ?>">
                                     <span class="sidebar-normal">Info Mahasiswa</span>
                                 </a>
                             </li>

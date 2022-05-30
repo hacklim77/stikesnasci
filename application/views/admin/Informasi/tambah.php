@@ -6,7 +6,7 @@
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url("admin") ?>">Home</a></li>
                     <li class="breadcrumb-item" aria-current="page">informasi</li>
-                    <li class="breadcrumb-item active" aria-current="page">berita</li>
+                    <li class="breadcrumb-item active" aria-current="page">Info</li>
                   </ol>
                 </nav>
             </div>
@@ -16,7 +16,7 @@
     <div class="card-header" data-background-color="purple">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="title">Tambah Berita</h4>
+                <h4 class="title">Tambah Info</h4>
             </div>
         </div>
         <!-- <p class="category">Here is a subtitle for this table</p> -->
@@ -42,7 +42,7 @@
                         <label>isi</label>
                         <textarea name="isi_berita" id="isi_berita" rows="14" class="form-control textexp"></textarea>
                     </div>
-                    <input type="hidden" name="tipe_berita" value="<?php print_r($tipe[0]); ?>">
+                    <input type="hidden" name="tipe_berita" value="<?php print_r($tipe[1]); ?>">
                     <!-- <div class="form-group">
                         <label>tags</label>
                         <input name="judul" type="text" class="form-control" data-role="tagsinput">
