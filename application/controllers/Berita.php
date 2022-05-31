@@ -97,7 +97,7 @@
 
         }
 
-        public function tambahBerita()
+        public function tambahBerita($tb='')
         {
             $this->form_validation->set_rules('judul_berita','Judul Berita','required');
 			$this->form_validation->set_rules('isi_berita','Isi','required');
@@ -106,7 +106,7 @@
 
             if ($this->form_validation->run('saveBerita') == FALSE) {
                 $data['title'] = 'Admin Stikes Nasional | Tambah';
-                
+
                 $data['tipe'] = ['berita','info_mhs','bauk','humas', //0,1,2,3
                 'lppm_informasi','lppm_pkm','lppm_agenda','lppm_penelitian','jurnal', //4,5,6,7,8
                 'beasiswa','hibah_mahasiswa','skp','alumni','seminar_workshop','ukm','organisasi','survey_kemahasiswaan','download_mhs', //9,10,11,12,13,14,15,16,17
@@ -117,10 +117,33 @@
                 $this->load->view('admin/templates/sidebar.php');
                 $this->load->view('admin/templates/navbar.php');
                 
-                if ($data['tipe'] = 'berita') {
-                    $this->load->view('admin/berita/tambah',$data);                    
-                } elseif ($data['tipe'] = 'info_mhs') {
+                if ($_SERVER['HTTP_REFERER'] == base_url('berita/tblBerita')) 
+                {
+                    $this->load->view('admin/berita/tambah',$data);
+                } 
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('berita/tblInfomhs')) 
+                {
                     $this->load->view('admin/informasi/tambah',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('lppm/tbl_lppminfo')) 
+                {
+                    $this->load->view('admin/lppm/t-informasi',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('lppm/tbl_lppmpkm')) 
+                {
+                    $this->load->view('admin/lppm/t-pkm',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('lppm/tbl_lppmagenda')) 
+                {
+                    $this->load->view('admin/lppm/t-agenda',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('lppm/tbl_lppmpenelitian')) 
+                {
+                    $this->load->view('admin/lppm/t-penelitian',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('lppm/tbl_lppmjurnal')) 
+                {
+                    $this->load->view('admin/lppm/t-jurnal',$data);
                 }
                 
                 $this->load->view('admin/templates/footer.php');
@@ -128,7 +151,9 @@
             } 
             else{
                 $this->Informasimodel->insertBerita();
-                redirect('berita/tblBerita');
+                echo "<script>
+                window.location=history.go(-2);
+                </script>";
             }    
         }
 
@@ -160,7 +185,6 @@
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['berita'] = $this->Informasimodel->getTblBerita();
             
-
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -169,7 +193,7 @@
             $this->load->view('admin/templates/endscript.php');
 
             $this->Informasimodel->delBerita($id);
-            redirect('berita/tblBerita');
+            redirect($_SERVER['HTTP_REFERER']);
         }
 
         public function detailBerita($judul_berita)

@@ -131,35 +131,35 @@
                     <div class="collapse" id="lppm" aria-expanded="false">
                         <ul class="nav">
                             <li class="nav-item lppm_penelitian">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/lppm_penelitian'); ?>">
+                                <a class="nav-link" href="<?= base_url('lppm/tbl_lppmpenelitian'); ?>">
                                   <span class="sidebar-normal">Penelitian</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item lppm_pkm">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/lppm_pkm'); ?>">
+                                <a class="nav-link" href="<?= base_url('lppm/tbl_lppmpkm'); ?>">
                                     <span class="sidebar-normal">Pengabdian Kepada Masyarakat</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item lppm_informasi">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/lppm_informasi'); ?>">
+                                <a class="nav-link" href="<?= base_url('lppm/tbl_lppminfo'); ?>">
                                     <span class="sidebar-normal">Informasi</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item lppm_agenda">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/lppm_agenda'); ?>">
+                                <a class="nav-link" href="<?= base_url('lppm/tbl_lppmagenda'); ?>">
                                     <span class="sidebar-normal">Agenda LPPM</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="lppm/tbl_lppmjurnal">
                                     <span class="sidebar-normal">Jurnal</span>
                                 </a>
                             </li>
