@@ -17,7 +17,7 @@
                     <div class="card-header" data-background-color="purple">
                         <div class="row">
                             <div class="col-md-8">
-                                <h4 class="title">Tabel <?php print_r($tipe[8]) ?></h4>
+                                <h4 class="title">Tabel Jurnal</h4>
                             </div>
                             <div class="col-md-4 text-right">
                                 <a href="<?= base_url('berita/tambahberita') ?>" id="tambahBerita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah jurnal</a> 

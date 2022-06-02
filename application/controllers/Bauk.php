@@ -23,5 +23,18 @@
             $this->load->view('front/templates/footer');
         }
 
+        public function Tbl_bauk()
+        {
+            $data['title'] = 'BAUK';
+            $data['berita'] = $this->Informasimodel->getTblbauk();
+            
+            $this->load->view('admin/templates/head',$data);
+            $this->load->view('admin/templates/sidebar.php');
+            $this->load->view('admin/templates/navbar.php');
+            $this->load->view('admin/bauk/bauk',$data);
+            $this->load->view('admin/templates/footer.php');
+            $this->load->view('admin/templates/endscript.php');
+        }
+
     }
     

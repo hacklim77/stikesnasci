@@ -44,7 +44,7 @@ style="
 				<div class="col-md-9">
 					<a href="<?= base_url(''); ?>" class="d-inline-block d-md-none">
 						<img src="<?= base_url('assets/img/logo.png'); ?>" style="height: 45px; padding:2px;">
-					</a> -->
+					</a>
 					<div class="main-menu pull-right">
 						<a href="#" class="link fc-white d-inline-block d-lg-none fs-24" style="padding:10px;">
 							<i class="fa fa-bars"></i>

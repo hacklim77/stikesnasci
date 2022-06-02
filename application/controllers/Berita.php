@@ -97,7 +97,7 @@
 
         }
 
-        public function tambahBerita($tb='')
+        public function tambahBerita()
         {
             $this->form_validation->set_rules('judul_berita','Judul Berita','required');
 			$this->form_validation->set_rules('isi_berita','Isi','required');
@@ -145,6 +145,67 @@
                 {
                     $this->load->view('admin/lppm/t-jurnal',$data);
                 }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/tbl_beasiswa')) 
+                {
+                    $this->load->view('admin/kemahasiswaan/t-beasiswa',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/tbl_hibahmhs')) 
+                {
+                    $this->load->view('admin/kemahasiswaan/t-hibahmhs',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/tbl_skp')) 
+                {
+                    $this->load->view('admin/kemahasiswaan/t-skp',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/tbl_alumni')) 
+                {
+                    $this->load->view('admin/kemahasiswaan/t-alumni',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/tbl_seminar')) 
+                {
+                    $this->load->view('admin/kemahasiswaan/t-seminar',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/tbl_ukm')) 
+                {
+                    $this->load->view('admin/kemahasiswaan/t-ukm',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/tbl_organisasi')) 
+                {
+                    $this->load->view('admin/kemahasiswaan/t-organisasi',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/tbl_survey')) 
+                {
+                    $this->load->view('admin/kemahasiswaan/t-survey',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/tbl_download')) 
+                {
+                    $this->load->view('admin/kemahasiswaan/t-download',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/tbl_roc')) 
+                {
+                    $this->load->view('admin/cdc/t-roc',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/tbl_tracerStudy')) 
+                {
+                    $this->load->view('admin/cdc/t-tracerstd',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/tbl_informasi')) 
+                {
+                    $this->load->view('admin/cdc/t-informasi',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/tbl_benchmarking')) 
+                {
+                    $this->load->view('admin/cdc/t-benchmarking',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/tbl_cdcloker')) 
+                {
+                    $this->load->view('admin/cdc/t-cdcloker',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/tbl_download')) 
+                {
+                    $this->load->view('admin/cdc/t-download',$data);
+                }
+                
                 
                 $this->load->view('admin/templates/footer.php');
                 $this->load->view('admin/templates/endscript.php');
@@ -175,8 +236,10 @@
                 $this->load->view('admin/templates/endscript.php');
             } 
             else{
-            $u = $this->Informasimodel->updateBerita();
-            redirect('berita/tblBerita',$u);
+                $this->Informasimodel->updateBerita();
+                echo "<script>
+                window.location=history.go(-2);
+                </script>";
             }    
         }
 

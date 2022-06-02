@@ -47,9 +47,6 @@
                     } else{
                         $this->session->set_flashdata('msg','<div class="alert alert-danger" role="alert">Password tidak sesuai!</div>');
                         redirect('admin/login');
-                        /* print_r($admin_password);
-                        echo "<br>";
-                        print_r(md5($password_admin)); */
                     }
                 } else{
                     $this->session->set_flashdata('msg','<div class="alert alert-danger" role="alert">Username tidak ada!</div>');

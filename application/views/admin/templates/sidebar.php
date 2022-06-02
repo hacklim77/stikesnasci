@@ -159,7 +159,7 @@
                         </ul>
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="lppm/tbl_lppmjurnal">
+                                <a class="nav-link" href=<?= base_url('lppm/tbl_lppmjurnal') ?>>
                                     <span class="sidebar-normal">Jurnal</span>
                                 </a>
                             </li>
@@ -184,63 +184,63 @@
                     <div class="collapse" id="KEMAHASISWAAN" aria-expanded="false">
                         <ul class="nav">
                             <li class="nav-item beasiswa">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/beasiswa'); ?>">
+                                <a class="nav-link" href="<?= base_url('kemahasiswaan/tbl_beasiswa'); ?>">
                                   <span class="sidebar-normal">Beasiswa</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item kreativitas">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/kreativitas'); ?>">
+                                <a class="nav-link" href="<?= base_url('kemahasiswaan/tbl_hibahmhs'); ?>">
                                     <span class="sidebar-normal">Hibah Mahasiswa</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item skp">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/skp'); ?>">
+                                <a class="nav-link" href="<?= base_url('kemahasiswaan/tbl_skp'); ?>">
                                     <span class="sidebar-normal">SKP</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item ">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/alumni'); ?>">
+                                <a class="nav-link" href="<?= base_url('kemahasiswaan/tbl_alumni'); ?>">
                                     <span class="sidebar-normal">Alumni</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item seminar">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/seminar'); ?>">
+                                <a class="nav-link" href="<?= base_url('kemahasiswaan/tbl_seminar'); ?>">
                                     <span class="sidebar-normal">Seminar dan Workshop</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item ukm">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/ukm'); ?>">
+                                <a class="nav-link" href="<?= base_url('kemahasiswaan/tbl_ukm'); ?>">
                                     <span class="sidebar-normal">Unit Kegiatan Mahasiswa</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item organisasi">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/organisasi'); ?>">
+                                <a class="nav-link" href="<?= base_url('kemahasiswaan/tbl_organisasi'); ?>">
                                     <span class="sidebar-normal">Organisasi</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item survey_kemahasiswaan">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/survey_kemahasiswaan'); ?>">
+                                <a class="nav-link" href="<?= base_url('kemahasiswaan/tbl_survey'); ?>">
                                     <span class="sidebar-normal">Survey Kemahasiswaan</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item kemahasiswaan_download">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/kemahasiswaan_download'); ?>">
+                                <a class="nav-link" href="<?= base_url('kemahasiswaan/tbl_download'); ?>">
                                     <span class="sidebar-normal">Download</span>
                                 </a>
                             </li>
@@ -266,42 +266,42 @@
                     <div class="collapse" id="cdc" aria-expanded="false">
                         <ul class="nav">
                             <li class="nav-item roc">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/roc'); ?>">
+                                <a class="nav-link" href="<?= base_url('cdc/tbl_roc'); ?>">
                                   <span class="sidebar-normal">Recruitment on Campus</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item tracerstudy">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/tracerstudy'); ?>">
+                                <a class="nav-link" href="<?= base_url('cdc/tbl_tracerStudy'); ?>">
                                     <span class="sidebar-normal">Tracer Study</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item info_cdc">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/info_cdc'); ?>">
+                                <a class="nav-link" href="<?= base_url('cdc/tbl_informasi'); ?>">
                                     <span class="sidebar-normal">Informasi</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item benchmarking">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/benchmarking'); ?>">
+                                <a class="nav-link" href="<?= base_url('cdc/tbl_benchmarking'); ?>">
                                     <span class="sidebar-normal">Benchmarking</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item loker">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/loker'); ?>">
+                                <a class="nav-link" href="<?= base_url('cdc/tbl_cdcloker'); ?>">
                                     <span class="sidebar-normal">Lowongan Pekerjaan</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
                             <li class="nav-item cdc_download">
-                                <a class="nav-link" href="<?= base_url('admin_stksn/download_cdc'); ?>">
+                                <a class="nav-link" href="<?= base_url('cdc/tbl_download'); ?>">
                                     <span class="sidebar-normal">Download</span>
                                 </a>
                             </li>
