@@ -21,7 +21,7 @@
             $config['per_page'] = 10;
 
 
-            $config['full_tag_open'] = '<nav class=nav-page><ul class="pagination">';
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
             $config['full_tag_close'] = '</ul></nav>';
 
             $config['first_link'] = 'First';
@@ -205,6 +205,14 @@
                 {
                     $this->load->view('admin/cdc/t-download',$data);
                 }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('bauk/Tbl_bauk')) 
+                {
+                    $this->load->view('admin/bauk/t-bauk',$data);
+                }
+                elseif ($_SERVER['HTTP_REFERER'] == base_url('humas/Tbl_humas')) 
+                {
+                    $this->load->view('admin/humas/t-humas',$data);
+                }
                 
                 
                 $this->load->view('admin/templates/footer.php');
@@ -212,13 +220,17 @@
             } 
             else{
                 $this->Informasimodel->insertBerita();
+               /*  $this->session->set_flashdata('flash','<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Data Berhasil!</strong> Ditambahkan!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>'); */
                 echo "<script>
                 window.location=history.go(-2);
                 </script>";
             }    
         }
 
-        public function editBerita($id)
+        public function editBerita($id=null)
         {
             $this->form_validation->set_rules('judul_berita','Judul Berita','required');
 			$this->form_validation->set_rules('isi_berita','Isi','required');

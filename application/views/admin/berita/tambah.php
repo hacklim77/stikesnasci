@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <button name="saveBerita" type="submit" class="btn btn-primary pull-right">simpan</button>
-                    <a href="" class="btn btn-danger pull-right">Kembali</a>
+                    <a href="javascript:history.back()" class="btn btn-danger pull-right">Kembali</a>
                 </div>
             </div>
             <div class="clearfix"></div>

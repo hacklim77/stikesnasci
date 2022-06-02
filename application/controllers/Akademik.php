@@ -13,5 +13,7 @@
             $this->load->view('front/akademik/index',$data);
             $this->load->view('front/templates/footer');
         }
+
+        
     }
     

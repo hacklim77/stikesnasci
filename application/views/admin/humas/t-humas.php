@@ -5,8 +5,7 @@
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url("admin") ?>">Home</a></li>
-                    <li class="breadcrumb-item" aria-current="page">Kemahasiswaan</li>
-                    <li class="breadcrumb-item active" aria-current="page">Survey Kemahasiswaan</li>
+                    <li class="breadcrumb-item active" aria-current="page">Humas</li>
                   </ol>
                 </nav>
             </div>
@@ -16,7 +15,7 @@
     <div class="card-header" data-background-color="purple">
         <div class="row">
             <div class="col-md-12">
-                <h4 class="title">Tambah Survey Kemahasiswaan</h4>
+                <h4 class="title">Tambah Humas</h4>
             </div>
         </div>
         <!-- <p class="category">Here is a subtitle for this table</p> -->
@@ -38,13 +37,13 @@
                         <label>isi</label>
                         <textarea name="isi_berita" id="isi_berita" rows="14" class="form-control textexp"></textarea>
                     </div>
-                    <input type="hidden" name="tipe_berita" value="<?php print_r($tipe[16]); ?>">
+                    <input type="hidden" name="tipe_berita" value="<?php print_r($tipe[3]); ?>">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <button name="saveBerita" type="submit" class="btn btn-primary pull-right">simpan</button>
-                    <a href="javascript:history.back()" class="btn btn-danger pull-right">Kembali</a>
+                    <<a href="javascript:history.back()" class="btn btn-danger pull-right">Kembali</a>
                 </div>
             </div>
             <div class="clearfix"></div>
