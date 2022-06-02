@@ -1,6 +1,6 @@
 <?php
 
-    class Bauk extends CI_Controller
+    class Humas extends CI_Controller
     {
         public function __construct()
         {
@@ -11,9 +11,9 @@
 
         public function index()
         {
-            $data['title'] = 'BAUK';
+            $data['title'] = 'Humas';
             
-            $data['bauk'] = $this->Informasimodel->getBauk();
+            $data['bauk'] = $this->Informasimodel->getHumas();
 
             $this->load->view('front/templates/header');
             $this->load->view('front/templates/endscript');
@@ -23,15 +23,15 @@
             $this->load->view('front/templates/footer');
         }
 
-        public function Tbl_bauk()
+        public function Tbl_humas()
         {
-            $data['title'] = 'BAUK';
-            $data['berita'] = $this->Informasimodel->getTblbauk();
+            $data['title'] = 'Humas';
+            $data['berita'] = $this->Informasimodel->getTblhumas();
             
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
-            $this->load->view('admin/bauk/index',$data);
+            $this->load->view('admin/humas/index',$data);
             $this->load->view('admin/templates/footer.php');
             $this->load->view('admin/templates/endscript.php');
         }

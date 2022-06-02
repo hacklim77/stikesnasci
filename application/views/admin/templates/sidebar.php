@@ -321,7 +321,7 @@
                 if (in_array($idu, $ar)) { */ 
             ?>
                 <li class="bauk">
-                    <a href="<?= base_url('admin_stksn/bauk'); ?>">
+                    <a href="<?= base_url('bauk/Tbl_bauk'); ?>">
                         <i class="material-icons">add_task</i>
                         <p>BAUK</p>
                     </a>
@@ -332,7 +332,7 @@
                 if (in_array($idu, $ar)) { */ 
             ?>
                 <li class="humas">
-                    <a href="<?= base_url('admin_stksn/humas'); ?>">
+                    <a href="<?= base_url('humas/Tbl_humas'); ?>">
                         <i class="material-icons">add_task</i>
                         <p>HUMAS</p>
                     </a>

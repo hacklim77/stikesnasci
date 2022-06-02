@@ -5,7 +5,7 @@
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="<?= base_url("admin") ?>">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">BAUK</li>
+                    <li class="breadcrumb-item active" aria-current="page">Humas</li>
                   </ol>
                 </nav>
             </div>
@@ -16,10 +16,10 @@
                     <div class="card-header" data-background-color="purple">
                         <div class="row">
                             <div class="col-md-8">
-                                <h4 class="title">Tabel BAUK</h4>
+                                <h4 class="title">Tabel Humas</h4>
                             </div>
                             <div class="col-md-4 text-right">
-                                <a href="<?= base_url('berita/tambahberita') ?>" id="tambahBerita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah BAUK</a> 
+                                <a href="<?= base_url('berita/tambahberita') ?>" id="tambahBerita" class="btn btn-info m-t-0 m-b-0"><i class="material-icons">add</i> tambah Humas</a> 
                             </div>
                         </div>
                         <!-- <p class="category">Here is a subtitle for this table</p> -->
