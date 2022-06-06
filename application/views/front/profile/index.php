@@ -78,7 +78,7 @@
 											Menghasilkan tenaga kesehatan yang beriman dan bertaqwa kepada Tuhan Yang Maha Esa, berjiwa Pancasila dan UUD 1945, memiliki integritas dan karakter mulia.
 										</li>
 										<li>
-											Menghasilkan tenaga kesehatan yang kompetitif, kompeten,dapat dipercayai, memiliki jiwa dan sikap kewirausahaan dan mampu bersaing di pasar global serta mampu memberikan sumbangan sih bagi peningkatan kesejahteraan masyarakat dan derajat kesehatan.
+											Menghasilkan tenaga kesehatan yang kompetitif, kompeten, dapat dipercayai, memiliki jiwa dan sikap kewirausahaan dan mampu bersaing di pasar global serta mampu memberikan sumbangan sih bagi peningkatan kesejahteraan masyarakat dan derajat kesehatan.
 										</li>
 										<li>
 											Menghasilkan tenaga kesehatan yang tangguh dan tanggap terhadap perubahan dan kemajuan ilmu pengetahuan dan teknologi (IPTEK) serta berbagai masalah yang dihadapi masyarakat, inovatif dan kreatif khususnya yang berkaitan dengan bidang kesehatan.

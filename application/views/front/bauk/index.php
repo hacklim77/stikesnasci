@@ -6,7 +6,7 @@
                 <ul class="list-v">
                     <?php foreach ($bauk as $key) : ?>
                         <li>
-                            <a class="link" href="#">
+                            <a class="link" href=""<?= base_url('berita/detailberita/').$key['judul_berita'];?>"">
                                 <?= $key['judul_berita'] ?>
                                 <br>
                                 <small class="fc-grey"><i><?= longdate_indo($key['tgl_upload']) ?></i></small>
@@ -19,15 +19,6 @@
                         echo "<i>Belum ada info BAUK</i>";
                     }
                 ?>
-
-                
-				<!-- <div id="list">
-					<script type="text/javascript">
-						$(document).ready(function(){
-							$('#list').load('<?= base_url('apps/front/bauk/bauk_list.php')?>');
-						});	
-					</script>
-				</div> -->
 			</div>
 		</div>
 	</div>

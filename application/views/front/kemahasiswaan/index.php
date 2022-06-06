@@ -1,34 +1,3 @@
-<div class="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<h3 class="c-title">Kemahasiswaan</h3>
-				<div>
-					<ul class="list-v">
-						<li>
-							<a class="link" href="#">Beasiswa</a>
-						</li>
-						<li>
-							<a class="link" href="#">kreativitas</a>
-						</li>
-						<li>
-							<a class="link" href="#">SKP</a>
-						</li>
-						<li>
-							<a class="link" href="#">Alumni</a>
-						</li>
-						<li>
-							<a class="link" href="#">Seminar dan Workshop</a>
-						</li>
-						<li>
-							<a class="link" href="#">Unit Kegiatan Mahasiswa</a>
-						</li>
-						<li>
-							<a class="link" href="#">Organisasi</a>
-						</li>
-					</ul>
-				</div>
-
                 <h3 class="c-title">Beasiswa</h3>
 						<div>
 							<ul class="list-v">

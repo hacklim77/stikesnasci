@@ -2,7 +2,8 @@
 	<div class="container">
 		<div class="row">
             <div class="col-md-4">
-            <h3 class="c-title">Berita Lainnya</h3>
+            
+			<h3 class="c-title">Berita Lainnya</h3>
 					<div>
 						<ul class="list-v">
 							<?php foreach ($listberita as $key) :?>
@@ -15,11 +16,6 @@
 								</li>
 						</ul>
 					</div>
-				<!-- div id="infokampus">
-					<script type="text/javascript">
-						$('#infokampus').load('apps/front/ajax/info_kampus.php');
-					</script>
-				</div> -->
 			</div>
 
 			<div class="col-md-8">

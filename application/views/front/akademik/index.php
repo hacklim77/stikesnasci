@@ -11,19 +11,19 @@
 					<h3 class="c-title">Program Studi</h3>
 					<ul class="list-v">
 						<li>
-							<a class="link" href="<?= base_url('akademik/DIII Farmasi') ?>">DIII Farmasi</a>
+							<a class="link" href="<?= base_url('akademik/DIII_Farmasi') ?>">DIII Farmasi</a>
 						</li>
 						<li>
-							<a class="link" href="<?= base_url('akademik/DIII Analis Kesehatan') ?>">DIII Teknologi Laboratorium Medis</a>
+							<a class="link" href="<?= base_url('akademik/DIII_TLM') ?>">DIII Teknologi Laboratorium Medis</a>
 						</li>
 						<li>
-							<a class="link" href="<?= base_url('akademik/DIV Fisioterapi') ?>">DIV Fisioterapi</a>
+							<a class="link" href="<?= base_url('akademik/DIV_Fisioterapi') ?>">DIV Fisioterapi</a>
 						</li>
 						<li>
-							<a class="link" href="<?= base_url('akademik/DIV TLM') ?>">DIV Teknologi Laboratorium Medik</a>
+							<a class="link" href="<?= base_url('akademik/DIV_TLM') ?>">DIV Teknologi Laboratorium Medis</a>
 						</li>
 						<li>
-							<a class="link" href="<?= base_url('akademik/S1 Farmasi') ?>">S1 Farmasi</a>
+							<a class="link" href="<?= base_url('akademik/SI_Farmasi') ?>">S1 Farmasi</a>
 						</li>
 					</ul>
 				</div>

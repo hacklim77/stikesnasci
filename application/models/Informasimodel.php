@@ -78,8 +78,7 @@
         ///////////////////////////////////////////////////////////* Batas Private Upload Image *///////////////////////////////////////////////////////////
 
         ////////////////////////////////////////////////////////// BATAS CRUD DATA ////////////////////////////////////////////////////////////////////
-        
-        
+                
         //////////////////////////////////////////////////////////* Data Berita Utama *///////////////////////////////////////////////////////////
 
         public function getBerita()
@@ -219,7 +218,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','lppm_informasi');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -244,7 +242,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','lppm_pkm');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -269,7 +266,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','lppm_agenda');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -294,7 +290,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','lppm_penelitian');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -343,7 +338,17 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','beasiswa');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
+            $query = $this->db->get()->result_array();
+            return $query;        
+        }
+
+        public function get_beasiswaside()
+        {
+            $this->db->select('*');
+            $this->db->from('berita');
+            $this->db->like('tipe_berita','beasiswa');
+            $this->db->order_by('id_berita','DESC');
+            $this->db->limit(3);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -365,9 +370,8 @@
         {
             $this->db->select('*');
             $this->db->from('berita');
-            $this->db->like('tipe_berita','hibah_mahasiswa');
+            $this->db->like('tipe_berita','kreativitas');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -376,7 +380,7 @@
         {
             $this->db->select('*');
             $this->db->from('berita');
-            $this->db->like('tipe_berita','hibah_mahasiswa');
+            $this->db->like('tipe_berita','kreativitas');
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
@@ -392,7 +396,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','skp');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -417,7 +420,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','alumni');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -442,7 +444,17 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','seminar_workshop');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
+            $query = $this->db->get()->result_array();
+            return $query;        
+        }
+
+        public function get_seminarside()
+        {
+            $this->db->select('*');
+            $this->db->from('berita');
+            $this->db->like('tipe_berita','seminar_workshop');
+            $this->db->order_by('id_berita','DESC');
+            $this->db->limit(3);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -467,7 +479,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','ukm');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -492,7 +503,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','organisasi');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -517,7 +527,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','survey_kemahasiswaan');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -542,7 +551,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','download_mhs');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -567,7 +575,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','roc');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -592,7 +599,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','tracer_study');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -617,7 +623,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','informasi');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -642,7 +647,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','benchmarking');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -667,7 +671,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','cdc_loker');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
@@ -692,7 +695,6 @@
             $this->db->from('berita');
             $this->db->like('tipe_berita','download_cdc');
             $this->db->order_by('id_berita','DESC');
-            $this->db->limit(5);
             $query = $this->db->get()->result_array();
             return $query;        
         }
