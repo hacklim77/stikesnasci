@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
             <div class="col-md-4">
-            
+				
 			<h3 class="c-title">Berita Lainnya</h3>
 					<div>
 						<ul class="list-v">

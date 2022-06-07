@@ -274,23 +274,111 @@
         public function detailBerita($judul_berita)
         {
             $judul= urldecode($judul_berita);
-            $data['title'] = 'Berita';
+            $data['title'] = 'Detail Artikel';
             $berita = $this->Informasimodel->detailBerita($judul)->result();
             $data['berita'] = $berita;
             $data['listberita'] = $this->Informasimodel->getBeritaside();
+
             $this->load->view('front/templates/header');
             $this->load->view('front/templates/endscript');
             $this->load->view('front/templates/menu');
+            
             if ($_SERVER['HTTP_REFERER'] == base_url('lppm/penelitian') || $_SERVER['HTTP_REFERER'] == base_url('lppm/pkm') || $_SERVER['HTTP_REFERER'] == base_url('lppm/informasi') || $_SERVER['HTTP_REFERER'] == base_url('lppm/agenda') ) {
                 $this->load->view('front/templates/indikatorlppm',$data);
             }
-            elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/beasiswa') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/hibahmhs') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/skp') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/alumni') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/seminar') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/ukm') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/organisasi') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/survey') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/download')) {
+            elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/beasiswa') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/hibahmhs') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/skp') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/alumni') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/seminar') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/ukm') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/organisasi') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/survey') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/download')) {
                 $this->load->view('front/templates/indikatormhs',$data);
             }
+            elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/roc') || $_SERVER['HTTP_REFERER'] == base_url('cdc/tracerStudy') || $_SERVER['HTTP_REFERER'] == base_url('cdc/informasi') || $_SERVER['HTTP_REFERER'] == base_url('cdc/benchmarking') || $_SERVER['HTTP_REFERER'] == base_url('cdc/cdcloker') || $_SERVER['HTTP_REFERER'] == base_url('cdc/download')) {
+                $this->load->view('front/templates/indikatorcdc',$data);
+            }
+            
             $this->load->view('front/berita/detailberita',$data);
             $this->load->view('front/templates/footer');
         }
 
+        public function detmhs($judul_berita)
+        {
+            $judul= urldecode($judul_berita);
+            $data['title'] = 'Detail Artikel';
+            $berita = $this->Informasimodel->detailBerita($judul)->result();
+            $data['berita'] = $berita;
+            $data['listberita'] = $this->Informasimodel->getBeritaside();
+            $data['beasiswa'] = $this->Informasimodel->get_beasiswaside();
+            $data['seminar'] = $this->Informasimodel->get_seminarside();
+
+            $this->load->view('front/templates/header');
+            $this->load->view('front/templates/endscript');
+            $this->load->view('front/templates/menu');
+            
+            if ($_SERVER['HTTP_REFERER'] == base_url('lppm/penelitian') || $_SERVER['HTTP_REFERER'] == base_url('lppm/pkm') || $_SERVER['HTTP_REFERER'] == base_url('lppm/informasi') || $_SERVER['HTTP_REFERER'] == base_url('lppm/agenda') ) {
+                $this->load->view('front/templates/indikatorlppm',$data);
+            }
+            elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/beasiswa') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/hibahmhs') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/skp') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/alumni') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/seminar') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/ukm') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/organisasi') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/survey') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/download')) {
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+            elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/roc') || $_SERVER['HTTP_REFERER'] == base_url('cdc/tracerStudy') || $_SERVER['HTTP_REFERER'] == base_url('cdc/informasi') || $_SERVER['HTTP_REFERER'] == base_url('cdc/benchmarking') || $_SERVER['HTTP_REFERER'] == base_url('cdc/cdcloker') || $_SERVER['HTTP_REFERER'] == base_url('cdc/download')) {
+                $this->load->view('front/templates/indikatorcdc',$data);
+            }
+            
+            $this->load->view('front/kemahasiswaan/menu/menu',$data);
+            $this->load->view('front/kemahasiswaan/detmhs',$data);
+            $this->load->view('front/templates/footer');
+        }
+
+        public function detlppm($judul_berita)
+        {
+            $judul= urldecode($judul_berita);
+            $data['title'] = 'Detail Artikel';
+            $berita = $this->Informasimodel->detailBerita($judul)->result();
+            $data['berita'] = $berita;
+            $data['listberita'] = $this->Informasimodel->getBeritaside();
+
+            $this->load->view('front/templates/header');
+            $this->load->view('front/templates/endscript');
+            $this->load->view('front/templates/menu');
+            
+            if ($_SERVER['HTTP_REFERER'] == base_url('lppm/penelitian') || $_SERVER['HTTP_REFERER'] == base_url('lppm/pkm') || $_SERVER['HTTP_REFERER'] == base_url('lppm/informasi') || $_SERVER['HTTP_REFERER'] == base_url('lppm/agenda') ) {
+                $this->load->view('front/templates/indikatorlppm',$data);
+            }
+            elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/beasiswa') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/hibahmhs') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/skp') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/alumni') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/seminar') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/ukm') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/organisasi') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/survey') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/download')) {
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+            elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/roc') || $_SERVER['HTTP_REFERER'] == base_url('cdc/tracerStudy') || $_SERVER['HTTP_REFERER'] == base_url('cdc/informasi') || $_SERVER['HTTP_REFERER'] == base_url('cdc/benchmarking') || $_SERVER['HTTP_REFERER'] == base_url('cdc/cdcloker') || $_SERVER['HTTP_REFERER'] == base_url('cdc/download')) {
+                $this->load->view('front/templates/indikatorcdc',$data);
+            }
+
+            $this->load->view('front/lppm/menu',$data);
+            $this->load->view('front/lppm/detlppm',$data);
+            $this->load->view('front/templates/footer');
+        }
+
+        public function detcdc($judul_berita)
+        {
+            $judul= urldecode($judul_berita);
+            $data['title'] = 'Detail Artikel';
+            $berita = $this->Informasimodel->detailBerita($judul)->result();
+            $data['berita'] = $berita;
+            $data['loker'] = $this->Informasimodel->get_lokerside();
+
+            $this->load->view('front/templates/header');
+            $this->load->view('front/templates/endscript');
+            $this->load->view('front/templates/menu');
+            
+            if ($_SERVER['HTTP_REFERER'] == base_url('lppm/penelitian') || $_SERVER['HTTP_REFERER'] == base_url('lppm/pkm') || $_SERVER['HTTP_REFERER'] == base_url('lppm/informasi') || $_SERVER['HTTP_REFERER'] == base_url('lppm/agenda') ) {
+                $this->load->view('front/templates/indikatorlppm',$data);
+            }
+            elseif ($_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/beasiswa') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/hibahmhs') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/skp') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/alumni') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/seminar') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/ukm') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/organisasi') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/survey') || $_SERVER['HTTP_REFERER'] == base_url('kemahasiswaan/download')) {
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+            elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/roc') || $_SERVER['HTTP_REFERER'] == base_url('cdc/tracerStudy') || $_SERVER['HTTP_REFERER'] == base_url('cdc/informasi') || $_SERVER['HTTP_REFERER'] == base_url('cdc/benchmarking') || $_SERVER['HTTP_REFERER'] == base_url('cdc/cdcloker') || $_SERVER['HTTP_REFERER'] == base_url('cdc/download') || $_SERVER['HTTP_REFERER'] == base_url('berita/detcdc/'.$judul_berita) ) {
+                $this->load->view('front/templates/indikatorcdc',$data);
+            }
+
+            $this->load->view('front/cdc/menu',$data);
+            $this->load->view('front/cdc/detcdc',$data);
+            $this->load->view('front/templates/footer');
+        }
         
 
     }

@@ -232,6 +232,16 @@
             return $query;   
         }
 
+        public function getlppminf($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'lppm_informasi'], $limit,$start)->result_array();
+        }
+        
+        public function getlppminfCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'lppm_informasi'])->num_rows();
+        }
+
         ///////////////////////////////////////////////////////////* Batas Lppm Informasi *///////////////////////////////////////////////////////////
         
         ///////////////////////////////////////////////////////////* Data Lppm PKM *///////////////////////////////////////////////////////////
@@ -617,13 +627,24 @@
 
         /////////////////////////////////////////////////////////////* Informasi Kemahasiswaan *///////////////////////////////////////////////////////////
 
-        public function get_inform()
+        public function get_inform($limit,$start)
         {
             $this->db->select('*');
             $this->db->from('berita');
             $this->db->like('tipe_berita','informasi');
             $this->db->order_by('id_berita','DESC');
+            $this->db->limit($limit,$start);
             $query = $this->db->get()->result_array();
+            return $query;        
+        }
+        
+        public function get_informCount()
+        {
+            $this->db->select('*');
+            $this->db->from('berita');
+            $this->db->like('tipe_berita','informasi');
+            $this->db->order_by('id_berita','DESC');
+            $query = $this->db->get()->num_rows();
             return $query;        
         }
 
@@ -675,6 +696,17 @@
             return $query;        
         }
 
+        public function get_lokerside()
+        {
+            $this->db->select('*');
+            $this->db->from('berita');
+            $this->db->like('tipe_berita','cdc_loker');
+            $this->db->order_by('id_berita','DESC');
+            $this->db->limit(5);
+            $query = $this->db->get()->result_array();
+            return $query;        
+        }
+
         public function getTbl_cdcloker()
         {
             $this->db->select('*');
@@ -683,6 +715,16 @@
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function getcdcAll($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'cdc_loker'], $limit,$start)->result_array();
+        }
+        
+        public function getcdcCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'cdc_loker'])->num_rows();
         }
 
         /////////////////////////////////////////////////////////////* Batas CDC Loker *///////////////////////////////////////////////////////////

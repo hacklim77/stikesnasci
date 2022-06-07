@@ -52,38 +52,7 @@
                     $this->session->set_flashdata('msg','<div class="alert alert-danger" role="alert">Username tidak ada!</div>');
                     redirect('admin/login');
                 }
-                
-                //$this->_islogin();
             }
         }
-
-        /* private function _islogin()
-        {
-            $username = $this->input->post('username_admin');
-            $password = $this->input->post('password_admin');
-
-            $user = $this->db->get_where('admin',['username_admin' => $username])->row_array();
-            //var_dump($user);
-
-
-            if($user['status'] == 1){
-                if(password_verify($password, $user['password_admin'])){
-                    $data = [
-                        'username_admin' => $user['username_admin']
-                        //'katagori_admin' => $user['katagori_admin']
-                    ];
-                    $this->session->set_userdata($user,$data);
-                    //var_dump($c);
-                    redirect('admin');
-                }  else {
-                    $this->session->set_flashdata('msg','<div class="alert alert-danger" role="alert">Password tidak sesuai!</div>');
-                    //var_dump($b);
-                    redirect('admin/login');
-                }
-            }  else{
-                $this->session->set_flashdata('msg','<div class="alert alert-danger" role="alert">Username tidak ada!</div>');
-                redirect('admin/login');
-            } 
-        } */
 
     }

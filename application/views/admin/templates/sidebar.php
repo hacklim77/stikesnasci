@@ -9,9 +9,9 @@
             <img src="<?= base_url('assets/img/logo-stikes.png') ?>" style="max-height: 100px;">
         </a>
     </div>
-    <div class="sidebar-wrapper ps-container ps-theme-default ps-active-y">
-        <ul class="nav" id="main-tab" data-tab="<?php /* echo $menu */ ?>">
-            <li class="home">
+    <div class="sidebar-wrapper">
+        <ul class="nav" id="main-tab">
+            <li class="home <?php if($this->uri->segment(1)=="admin"){echo "actived";} ?>">
                 <a href="<?= base_url('admin'); ?>">
                     <i class="material-icons">dashboard</i>
                     <p>DASHBOARD</p>
@@ -35,8 +35,8 @@
                 if (in_array($idu, $ar)) { */ 
             ?>
                 <!-- BERITA & INFO -->
-                <li class="nav-item berita infomhs">
-                    <a class="nav-link collapsed" data-toggle="collapse" href="#info-berita" aria-expanded="false">
+                <li class="nav-item berita infomhs <?php if($this->uri->segment(1)=="berita") {echo "actived";} ?>">
+                    <a class="nav-link" data-toggle="collapse" href="#info-berita" aria-expanded="false">
                         <i class="material-icons">info</i>
                         <p> INFORMASI
                            <b class="caret"></b>
@@ -45,14 +45,14 @@
 
                     <div class="collapse" id="info-berita" aria-expanded="false">
                         <ul class="nav">
-                            <li class="nav-item berita">
+                            <li class="nav-item berita <?php if($this->uri->segment(2)=="tblBerita") {echo "actived";} ?>">
                                 <a class="nav-link" href="<?= base_url('berita/tblBerita'); ?>">
                                   <span class="sidebar-normal">Berita</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
-                            <li class="nav-item infomhs">
+                            <li class="nav-item infomhs <?php if($this->uri->segment(2)=="tblInfomhs") {echo "actived";} ?>">
                                 <a class="nav-link" href="<?= base_url('berita/tblInfomhs'); ?>">
                                     <span class="sidebar-normal">Info Mahasiswa</span>
                                 </a>
@@ -67,7 +67,7 @@
                 if (in_array($idu, $ar)) {  */
             ?>
                 <!-- akademik -->
-                <li class="nav-item ">
+                <li class="nav-item <?php if($this->uri->segment(1)=="akademik") {echo "actived";} ?>">
                     <a class="nav-link collapsed" data-toggle="collapse" href="#akademik" aria-expanded="false">
                         <i class="material-icons">content_paste</i>
                         <p> AKADEMIK
@@ -120,7 +120,7 @@
                 if (in_array($idu, $ar)) { */ 
             ?>
                 <!-- LPPM -->
-                <li class="nav-item lppm_penelitian lppm_pkm lppm_informasi lppm_agenda">
+                <li class="nav-item lppm_penelitian lppm_pkm lppm_informasi lppm_agenda<?php if($this->uri->segment(2)=="lppm") {echo "actived";} ?>">
                     <a class="nav-link collapsed" data-toggle="collapse" href="#lppm" aria-expanded="false">
                         <i class="material-icons">chrome_reader_mode</i>
                         <p> LPPM
@@ -130,35 +130,35 @@
 
                     <div class="collapse" id="lppm" aria-expanded="false">
                         <ul class="nav">
-                            <li class="nav-item lppm_penelitian">
+                            <li class="nav-item lppm_penelitian <?php if($this->uri->segment(2)=="tbl_lppmpenelitian") {echo "actived";} ?>">
                                 <a class="nav-link" href="<?= base_url('lppm/tbl_lppmpenelitian'); ?>">
                                   <span class="sidebar-normal">Penelitian</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
-                            <li class="nav-item lppm_pkm">
+                            <li class="nav-item lppm_pkm <?php if($this->uri->segment(2)=="tbl_lppmpkm") {echo "actived";} ?>">
                                 <a class="nav-link" href="<?= base_url('lppm/tbl_lppmpkm'); ?>">
                                     <span class="sidebar-normal">Pengabdian Kepada Masyarakat</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
-                            <li class="nav-item lppm_informasi">
+                            <li class="nav-item lppm_informasi <?php if($this->uri->segment(2)=="tbl_lppminfo") {echo "actived";} ?>">
                                 <a class="nav-link" href="<?= base_url('lppm/tbl_lppminfo'); ?>">
                                     <span class="sidebar-normal">Informasi</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
-                            <li class="nav-item lppm_agenda">
+                            <li class="nav-item lppm_agenda <?php if($this->uri->segment(2)=="tbl_lppmagenda") {echo "actived";} ?>">
                                 <a class="nav-link" href="<?= base_url('lppm/tbl_lppmagenda'); ?>">
                                     <span class="sidebar-normal">Agenda LPPM</span>
                                 </a>
                             </li>
                         </ul>
                         <ul class="nav">
-                            <li class="nav-item ">
+                            <li class="nav-item <?php if($this->uri->segment(2)=="tbl_lppmjurnal") {echo "actived";} ?>">
                                 <a class="nav-link" href=<?= base_url('lppm/tbl_lppmjurnal') ?>>
                                     <span class="sidebar-normal">Jurnal</span>
                                 </a>

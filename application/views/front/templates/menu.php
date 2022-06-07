@@ -53,22 +53,22 @@ style="
 							<ul id="main-tab" class="list-inline mb-0 text-right" data-tab="">
 								<!-- class='active' -->
 								<li>
-									<a href="<?= base_url('profile'); ?>" class="link fc-white home">PROFILE</a>
+									<a class="link fc-white <?php if($this->uri->segment(1)=="profile"){echo "active";} ?>" href="<?= base_url('profile');?>">PROFILE</a>
 								</li>
 								<li>
-									<a href="<?= base_url('akademik'); ?>" class="link fc-white galeri">AKADEMIK</a>
+									<a href="<?= base_url('akademik'); ?>" class="link fc-white <?php if($this->uri->segment(1)=="akademik"){echo "active";} ?>">AKADEMIK</a>
 								</li>
 								<li>
-									<a href="<?= base_url('lppm'); ?>" class="link fc-white profile">LPPM</a>
+									<a href="<?= base_url('lppm'); ?>" class="link fc-white profile <?php if($this->uri->segment(1)=="lppm"){echo "active";} ?>">LPPM</a>
 								</li>
 								<li>
-									<a href="<?= base_url('kemahasiswaan'); ?>" class="link fc-white alumni">KEMAHASISWAAN</a>
+									<a href="<?= base_url('kemahasiswaan'); ?>" class="link fc-white alumni <?php if($this->uri->segment(1)=="kemahasiswaan"){echo "active";} ?>">KEMAHASISWAAN</a>
 								</li>
 								<li>
-									<a href="<?= base_url('cdc'); ?>" class="link fc-white survey">CDC</a>
+									<a href="<?= base_url('cdc'); ?>" class="link fc-white survey <?php if($this->uri->segment(1)=="cdc"){echo "active";} ?>">CDC</a>
 								</li>
 								<li>
-									<a href="<?= base_url('bauk'); ?>" class="link fc-white cdc">BAUK</a>
+									<a href="<?= base_url('bauk'); ?>" class="link fc-white cdc <?php if($this->uri->segment(1)=="bauk"){echo "active";} ?>">BAUK</a>
 								</li>
 								<li>
 									<a href="https://pmb.stikesnas.ac.id" class="link fc-white pmb">PMB</a>

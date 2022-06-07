@@ -4,7 +4,7 @@
                     <ul class="list-v">
                         <?php foreach($berita as $key):?> 
                             <li>
-                                <a class="link" href="<?= base_url('berita/detailberita/').$key['judul_berita'];?>">
+                                <a class="link" href="<?= base_url('berita/detcdc/').$key['judul_berita'];?>">
                                     <?= $key['judul_berita'] ?>
                                     <br>
                                     <small class="fc-grey"><i><?= longdate_indo($key['tgl_upload']) ?></i></small>
@@ -12,6 +12,7 @@
                             </li>
                         <?php endforeach ?>    
                     </ul>
+                    <?= $this->pagination->create_links(); ?>
                     <?php 
                     if($berita == null){
                         echo "<i>Belum ada Informasi Lowongan Pekerjaan</i>";

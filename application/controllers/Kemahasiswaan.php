@@ -12,6 +12,8 @@
         public function index()
         {
             $data['title'] = 'Kemahasiswaan';
+            $data['beasiswa'] = $this->Informasimodel->get_beasiswaside();
+            $data['seminar'] = $this->Informasimodel->get_seminarside();
 
             $this->load->view('front/templates/header');
             $this->load->view('front/templates/endscript');
