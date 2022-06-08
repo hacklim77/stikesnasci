@@ -13,7 +13,7 @@
                 "isi_berita" => $this->input->post('isi_berita',true),
                 "tgl_upload" => date('Ymd'),
                 "tgl_edit" => date('Ymd'),
-                "tipe_berita" => $this->input->post('tipe_berita',true),
+                "tipe_berita" => $this->input->post("tipe_berita",true),
                 "status" => 1
             ];
 

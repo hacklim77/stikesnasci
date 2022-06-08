@@ -101,10 +101,8 @@
         {
             $this->form_validation->set_rules('judul_berita','Judul Berita','required');
 			$this->form_validation->set_rules('isi_berita','Isi','required');
-			
 
-
-            if ($this->form_validation->run('saveBerita') == FALSE) {
+            if ($this->form_validation->run() === FALSE) {
                 $data['title'] = 'Admin Stikes Nasional | Tambah';
 
                 $data['tipe'] = ['berita','info_mhs','bauk','humas', //0,1,2,3
@@ -112,6 +110,8 @@
                 'beasiswa','hibah_mahasiswa','skp','alumni','seminar_workshop','ukm','organisasi','survey_kemahasiswaan','download_mhs', //9,10,11,12,13,14,15,16,17
                 'roc','tracer_study','informasi','benchmarking','cdc_loker','download_cdc' //18,19,20,21,22,23
                 ];
+
+                $data['prodi'] = ["d3_farmasi","d3_tlm","d4_fisioterapi","d4_tlm","s1_farmasi"]; //0,1,2,3,4
  
                 $this->load->view('admin/templates/head',$data);
                 $this->load->view('admin/templates/sidebar.php');
@@ -214,12 +214,12 @@
                     $this->load->view('admin/humas/t-humas',$data);
                 }
                 
-                
                 $this->load->view('admin/templates/footer.php');
                 $this->load->view('admin/templates/endscript.php');
             } 
             else{
                 $this->Informasimodel->insertBerita();
+                //var_dump($q);
                /*  $this->session->set_flashdata('flash','<div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Data Berhasil!</strong> Ditambahkan!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -292,6 +292,18 @@
             elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/roc') || $_SERVER['HTTP_REFERER'] == base_url('cdc/tracerStudy') || $_SERVER['HTTP_REFERER'] == base_url('cdc/informasi') || $_SERVER['HTTP_REFERER'] == base_url('cdc/benchmarking') || $_SERVER['HTTP_REFERER'] == base_url('cdc/cdcloker') || $_SERVER['HTTP_REFERER'] == base_url('cdc/download')) {
                 $this->load->view('front/templates/indikatorcdc',$data);
             }
+
+            elseif ($this->uri->segment(2)=="detmhs" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+
+            elseif ($this->uri->segment(2)=="detlppm" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+
+            elseif ($this->uri->segment(2)=="detcdc" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
             
             $this->load->view('front/berita/detailberita',$data);
             $this->load->view('front/templates/footer');
@@ -310,7 +322,7 @@
             $this->load->view('front/templates/header');
             $this->load->view('front/templates/endscript');
             $this->load->view('front/templates/menu');
-            
+
             if ($_SERVER['HTTP_REFERER'] == base_url('lppm/penelitian') || $_SERVER['HTTP_REFERER'] == base_url('lppm/pkm') || $_SERVER['HTTP_REFERER'] == base_url('lppm/informasi') || $_SERVER['HTTP_REFERER'] == base_url('lppm/agenda') ) {
                 $this->load->view('front/templates/indikatorlppm',$data);
             }
@@ -319,6 +331,18 @@
             }
             elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/roc') || $_SERVER['HTTP_REFERER'] == base_url('cdc/tracerStudy') || $_SERVER['HTTP_REFERER'] == base_url('cdc/informasi') || $_SERVER['HTTP_REFERER'] == base_url('cdc/benchmarking') || $_SERVER['HTTP_REFERER'] == base_url('cdc/cdcloker') || $_SERVER['HTTP_REFERER'] == base_url('cdc/download')) {
                 $this->load->view('front/templates/indikatorcdc',$data);
+            }
+
+            elseif ($this->uri->segment(2)=="detmhs" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+
+            elseif ($this->uri->segment(2)=="detlppm" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+
+            elseif ($this->uri->segment(2)=="detcdc" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
             }
             
             $this->load->view('front/kemahasiswaan/menu/menu',$data);
@@ -348,6 +372,18 @@
                 $this->load->view('front/templates/indikatorcdc',$data);
             }
 
+            elseif ($this->uri->segment(2)=="detmhs" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+
+            elseif ($this->uri->segment(2)=="detlppm" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+
+            elseif ($this->uri->segment(2)=="detcdc" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+
             $this->load->view('front/lppm/menu',$data);
             $this->load->view('front/lppm/detlppm',$data);
             $this->load->view('front/templates/footer');
@@ -375,11 +411,28 @@
                 $this->load->view('front/templates/indikatorcdc',$data);
             }
 
+            elseif ($this->uri->segment(2)=="detmhs" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+
+            elseif ($this->uri->segment(2)=="detlppm" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+
+            elseif ($this->uri->segment(2)=="detcdc" || $this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikatormhs',$data);
+            }
+
             $this->load->view('front/cdc/menu',$data);
             $this->load->view('front/cdc/detcdc',$data);
             $this->load->view('front/templates/footer');
         }
         
+
+        public function datax()
+        {
+            
+        }
 
     }
     
