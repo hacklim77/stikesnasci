@@ -6,12 +6,45 @@
         {
             $data = [
                 "nama_program_studi" => $this->input->post('nama_program_studi',true),
+                "img_program_studi" => 'null',
                 "visi" => $this->input->post('visi',true),
                 "misi" => $this->input->post('misi',true),
-                "tentang" => $this->input->post('tentang',true),
+                "tentang" => $this->input->post('tentang',true)
             ];
 
             $this->db->insert('program_studi',$data);
+        }
+
+        public function updateProdi()
+        {
+            $data = [
+                "nama_program_studi" => $this->input->post('nama_program_studi',true),
+                "img_program_studi" => 'null',
+                "visi" => $this->input->post('visi',true),
+                "misi" => $this->input->post('misi',true),
+                "tentang" => $this->input->post('tentang',true)
+            ];
+
+            $this->db->where('id_program_studi',$this->input->post('id_program_studi'));
+            $this->db->update('program_studi',$data);
+
+             //$this->db->update('program_studi', $data, array('id_program_studi' => $id));
+            
+        }
+
+        public function deleteProdi($id)
+        {
+            $this->db->where('id_program_studi',$id);
+            $this->db->delete('program_studi');
+        }
+
+        public function getTblakademik()
+        {
+            $this->db->select('*');
+            $this->db->from('program_studi');
+            $this->db->order_by('id_program_studi','DESC');
+            $query = $this->db->get()->result_array();
+            return $query;
         }
 
         public function getprodiID($id)

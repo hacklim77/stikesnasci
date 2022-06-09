@@ -3,7 +3,7 @@
 		<nav aria-label="breadcrumb">
 		  <ol class="breadcrumb">
 		    <li class="breadcrumb-item"><a class="link" href="<?= base_url(''); ?>">Beranda</a></li>
-		    <li class="breadcrumb-item"><a class="link" href="<?= base_url('lppm'); ?>">CDC</a></li>
+		    <li class="breadcrumb-item"><a class="link" href="<?= base_url('cdc'); ?>">CDC</a></li>
 		    <?php if ($_SERVER['HTTP_REFERER'] == base_url('cdc/roc')) {?>
                 <li class="breadcrumb-item"><a class="link" href="<?= base_url('cdc/roc'); ?>">Recruitment on Campus</a></li>
             <?php } ?>

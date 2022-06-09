@@ -32,18 +32,18 @@
                     <div class="form-group">
                         <label>Gambar Cover</label>
                         <input name="img_program_studi" type="file" class="form-control" style="opacity: 1; margin-top:20px">
-                    </div>
+                    </div>    
                     <div class="form-group">
-                        <label></label>
+                        <label><h4>Visi</h4></label>
                         <textarea name="visi" id="visi" rows="14" class="form-control textexp"></textarea>
                     </div>
                     <div class="form-group">
-                        <label></label>
+                        <label><h4>Misi</h4></label>
                         <textarea name="misi" id="misi" rows="14" class="form-control textexp"></textarea>
                     </div>
                     <div class="form-group">
-                        <label></label>
-                        <input type="hidden" name="tentang" id="tentang">
+                        <label><h4>Tentang</h4></label>
+                        <textarea name="tentang" id="tentang" rows="14" class="form-control textexp"></textarea>
                     </div>
                 </div>
             </div>

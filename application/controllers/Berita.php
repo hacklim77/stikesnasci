@@ -298,11 +298,11 @@
             }
 
             elseif ($this->uri->segment(2)=="detlppm" || $this->uri->segment(2)=="detailberita"){
-                $this->load->view('front/templates/indikatormhs',$data);
+                $this->load->view('front/templates/indikatorlppm',$data);
             }
 
             elseif ($this->uri->segment(2)=="detcdc" || $this->uri->segment(2)=="detailberita"){
-                $this->load->view('front/templates/indikatormhs',$data);
+                $this->load->view('front/templates/indikatorcdc',$data);
             }
             
             $this->load->view('front/berita/detailberita',$data);
@@ -338,11 +338,11 @@
             }
 
             elseif ($this->uri->segment(2)=="detlppm" || $this->uri->segment(2)=="detailberita"){
-                $this->load->view('front/templates/indikatormhs',$data);
+                $this->load->view('front/templates/indikatorlppm',$data);
             }
 
             elseif ($this->uri->segment(2)=="detcdc" || $this->uri->segment(2)=="detailberita"){
-                $this->load->view('front/templates/indikatormhs',$data);
+                $this->load->view('front/templates/indikatorcdc',$data);
             }
             
             $this->load->view('front/kemahasiswaan/menu/menu',$data);
@@ -377,11 +377,11 @@
             }
 
             elseif ($this->uri->segment(2)=="detlppm" || $this->uri->segment(2)=="detailberita"){
-                $this->load->view('front/templates/indikatormhs',$data);
+                $this->load->view('front/templates/indikatorlppm',$data);
             }
 
             elseif ($this->uri->segment(2)=="detcdc" || $this->uri->segment(2)=="detailberita"){
-                $this->load->view('front/templates/indikatormhs',$data);
+                $this->load->view('front/templates/indikatorcdc',$data);
             }
 
             $this->load->view('front/lppm/menu',$data);
@@ -416,22 +416,16 @@
             }
 
             elseif ($this->uri->segment(2)=="detlppm" || $this->uri->segment(2)=="detailberita"){
-                $this->load->view('front/templates/indikatormhs',$data);
+                $this->load->view('front/templates/indikatorlppm',$data);
             }
 
             elseif ($this->uri->segment(2)=="detcdc" || $this->uri->segment(2)=="detailberita"){
-                $this->load->view('front/templates/indikatormhs',$data);
+                $this->load->view('front/templates/indikatorcdc',$data);
             }
 
             $this->load->view('front/cdc/menu',$data);
             $this->load->view('front/cdc/detcdc',$data);
             $this->load->view('front/templates/footer');
-        }
-        
-
-        public function datax()
-        {
-            
         }
 
     }

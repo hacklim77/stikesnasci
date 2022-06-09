@@ -23,29 +23,29 @@
     </div>
     <div class="card-content table-responsive">   
         <form method="post" enctype="multipart/form-data" action="<?= base_url('akademik/editProdi') ?>">
-            <input type="hidden" value="<?= $prodi['id_program_studi']; ?>" name="'id_program_studi'">
+            <input type="hidden" value="<?= $prodi['id_program_studi']; ?>" name="id_program_studi">
             <div class="row">  
                 <div class="col-md-12">
-                    
+                    <?= validation_errors() ?>
                     <div class="form-group">
                         <label>Program Studi</label>
-                        <input name="nama_program_studi" id="nama_program_studi"  type="text" class="form-control" accept-charset="character_set" value="<?= $prodi['nama_program_studi']; ?>">
+                        <input name="nama_program_studi" id="nama_program_studi" type="text" class="form-control" accept-charset="character_set" value="<?= $prodi['nama_program_studi']; ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label>Gambar Cover</label>
                         <input name="img_program_studi" type="file" class="form-control" style="opacity: 1; margin-top:20px">
                     </div>
                     <div class="form-group">
-                        <label></label>
+                        <label><h4>Visi</h4></label>
                         <textarea name="visi" id="visi" rows="14" class="form-control textexp"><?= $prodi['visi']; ?></textarea>
                     </div>
                     <div class="form-group">
-                        <label></label>
+                        <label><h4>Misi</h4></label>
                         <textarea name="misi" id="misi" rows="14" class="form-control textexp"><?= $prodi['misi']; ?></textarea>
                     </div>
                     <div class="form-group">
-                        <label></label>
-                        <input type="hidden" name="tentang" id="tentang" value="<?= $prodi['tentang']; ?>">
+                        <label><h4>Tentang</h4></label>
+                        <textarea name="tentang" id="tentang" rows="14" class="form-control textexp"><?= $prodi['tentang']; ?></textarea>
                     </div>
                   
                     <!-- <div class="form-group">
