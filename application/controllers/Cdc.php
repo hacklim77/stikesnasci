@@ -41,7 +41,7 @@
         {
             $data['title'] = 'CDC | Recruitmen on Campus';
             $data['berita'] = $this->Informasimodel->getTbl_roc();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -69,7 +69,7 @@
         {
             $data['title'] = 'CDC | Tracer Study';
             $data['berita'] = $this->Informasimodel->getTbl_tracerStudy();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -135,7 +135,7 @@
         {
             $data['title'] = 'CDC | Informasi';
             $data['berita'] = $this->Informasimodel->getTbl_inform();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -163,7 +163,7 @@
         {
             $data['title'] = 'CDC | Benchmarking';
             $data['berita'] = $this->Informasimodel->getTbl_benchmarking();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -232,7 +232,7 @@
         {
             $data['title'] = 'CDC | CDC Loker';
             $data['berita'] = $this->Informasimodel->getTbl_cdcloker();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -260,7 +260,7 @@
         {
             $data['title'] = 'CDC | Download';
             $data['berita'] = $this->Informasimodel->getTbl_downloadcdc();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');

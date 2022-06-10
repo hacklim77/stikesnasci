@@ -27,7 +27,7 @@
         {
             $data['title'] = 'Humas';
             $data['berita'] = $this->Informasimodel->getTblhumas();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');

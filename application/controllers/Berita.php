@@ -7,7 +7,8 @@
             parent::__construct();
             $this->load->model('Informasimodel');   
             $this->load->helper('tgl_indo','form','url');
-            $this->load->library('form_validation');   
+            $this->load->library('form_validation');
+            $this->load->model('Usermodel');
         }
 
         public function index()
@@ -67,7 +68,7 @@
         {
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['berita'] = $this->Informasimodel->getTblBerita();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
 
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
@@ -87,6 +88,7 @@
                 'roc','tracer_study','informasi','benchmarking','cdc_loker','download_cdc' //18,19,20,21,22,23
                 ];
             $data['berita'] = $data = $this->Informasimodel->getTblinfomhs();
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
@@ -112,7 +114,8 @@
                 ];
 
                 $data['prodi'] = ["d3_farmasi","d3_tlm","d4_fisioterapi","d4_tlm","s1_farmasi"]; //0,1,2,3,4
- 
+                $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();    
+
                 $this->load->view('admin/templates/head',$data);
                 $this->load->view('admin/templates/sidebar.php');
                 $this->load->view('admin/templates/navbar.php');
@@ -239,6 +242,7 @@
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Admin Stikes Nasional | Edit';
                 $data['berita'] = $this->Informasimodel->getBeritaID($id)->row_array();
+                $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
 
                 $this->load->view('admin/templates/head',$data);
                 $this->load->view('admin/templates/sidebar.php');
@@ -259,6 +263,7 @@
         {
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['berita'] = $this->Informasimodel->getTblBerita();
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');

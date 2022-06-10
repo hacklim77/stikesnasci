@@ -7,7 +7,8 @@
         {
             parent::__construct();
             $this->load->helper('tgl_indo','form','url');
-            $this->load->model('Informasimodel');   
+            $this->load->model('Informasimodel');
+               
         }
 
         public function index()
@@ -81,7 +82,7 @@
         {
             $data['title'] = 'LPPM Informasi';
             $data['berita'] = $this->Informasimodel->getTbl_Lppminformasi();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -108,7 +109,7 @@
         {
             $data['title'] = 'LPPM PKM';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmpkm();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -135,7 +136,7 @@
         {
             $data['title'] = 'LPPM Penelitian';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmpenelitian();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -162,7 +163,7 @@
         {
             $data['title'] = 'LPPM Agenda';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmagenda();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -189,7 +190,7 @@
         {
             $data['title'] = 'LPPM Jurnal';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmjurnal();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');

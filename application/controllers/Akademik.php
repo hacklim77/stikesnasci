@@ -8,7 +8,8 @@
             $this->load->model('Informasimodel');   
             $this->load->model('Akademikmodel');   
             $this->load->helper('tgl_indo','form','url');
-            $this->load->library('form_validation'); 
+            $this->load->library('form_validation');
+             
         }
 
         public function index()
@@ -35,7 +36,7 @@
                 $data['title'] = 'Admin Stikes Nasional | Akademik';
 
                 $data['prodi'] = ['DIII Farmasi','DIII Teknologi Laboratorium Medis','DIV Fisioterapi','DIV Teknologi Laboratorium Medis','S1 Farmasi']; //0,1,2,3,4
-                
+                $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
                 $this->load->view('admin/templates/head',$data);
                 $this->load->view('admin/templates/sidebar.php');
                 $this->load->view('admin/templates/navbar.php');
@@ -81,7 +82,7 @@
             if ($this->form_validation->run() == FALSE) {
                 $data['title'] = 'Admin Stikes Nasional | Akademik';
                 $data['prodi'] = $this->Akademikmodel->getprodiID($id)->row_array();
-
+                $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
                 $this->load->view('admin/templates/head',$data);
                 $this->load->view('admin/templates/sidebar.php');
                 $this->load->view('admin/templates/navbar.php');
@@ -101,7 +102,7 @@
         {
             $data['title'] = 'Admin Stikes Nasional | Akademik';
             $data['prodi'] = $this->Akademikmodel->getTblakademik();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
@@ -117,11 +118,63 @@
         {
             $data['title'] = 'DIII Farmasi';
             $data['prodi'] = $this->Akademikmodel->get_Tbld3farmasi();
-            
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
             $this->load->view('admin/templates/head',$data);
             $this->load->view('admin/templates/sidebar.php');
             $this->load->view('admin/templates/navbar.php');
             $this->load->view('admin/akademik/d-d3farmasi',$data);
+            $this->load->view('admin/templates/footer.php');
+            $this->load->view('admin/templates/endscript.php');
+        } 
+
+        public function tbl_d3tlm()
+        {
+            $data['title'] = 'DIII TLM';
+            $data['prodi'] = $this->Akademikmodel->get_Tbld3tlm();
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
+            $this->load->view('admin/templates/head',$data);
+            $this->load->view('admin/templates/sidebar.php');
+            $this->load->view('admin/templates/navbar.php');
+            $this->load->view('admin/akademik/d-d3tlm',$data);
+            $this->load->view('admin/templates/footer.php');
+            $this->load->view('admin/templates/endscript.php');
+        }
+
+        public function tbl_d4fisioterapi()
+        {
+            $data['title'] = 'DIV Fisioterapi';
+            $data['prodi'] = $this->Akademikmodel->get_Tbld4fisio();
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
+            $this->load->view('admin/templates/head',$data);
+            $this->load->view('admin/templates/sidebar.php');
+            $this->load->view('admin/templates/navbar.php');
+            $this->load->view('admin/akademik/d-d4fisioterapi',$data);
+            $this->load->view('admin/templates/footer.php');
+            $this->load->view('admin/templates/endscript.php');
+        }
+        
+        public function tbl_d4tlm()
+        {
+            $data['title'] = 'DIV TLM';
+            $data['prodi'] = $this->Akademikmodel->get_Tbld4tlm();
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
+            $this->load->view('admin/templates/head',$data);
+            $this->load->view('admin/templates/sidebar.php');
+            $this->load->view('admin/templates/navbar.php');
+            $this->load->view('admin/akademik/d-d4tlm',$data);
+            $this->load->view('admin/templates/footer.php');
+            $this->load->view('admin/templates/endscript.php');
+        }
+
+        public function tbl_s1farmasi()
+        {
+            $data['title'] = 'S1 Farmasi';
+            $data['prodi'] = $this->Akademikmodel->get_Tbls1farmasi();
+            $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
+            $this->load->view('admin/templates/head',$data);
+            $this->load->view('admin/templates/sidebar.php');
+            $this->load->view('admin/templates/navbar.php');
+            $this->load->view('admin/akademik/d-s1farmasi',$data);
             $this->load->view('admin/templates/footer.php');
             $this->load->view('admin/templates/endscript.php');
         }
@@ -140,19 +193,6 @@
             $this->load->view('front/templates/footer');
         }
 
-        public function tbl_d3tlm()
-        {
-            $data['title'] = 'DIII TLM';
-            $data['prodi'] = $this->Akademikmodel->get_Tbld3tlm();
-            
-            $this->load->view('admin/templates/head',$data);
-            $this->load->view('admin/templates/sidebar.php');
-            $this->load->view('admin/templates/navbar.php');
-            $this->load->view('admin/akademik/d-d3tlm',$data);
-            $this->load->view('admin/templates/footer.php');
-            $this->load->view('admin/templates/endscript.php');
-        }
-
         public function DIII_TLM()
         {
             $data['title'] = 'DIII Teknologi Laboratorium Medis';
@@ -167,19 +207,6 @@
             $this->load->view('front/templates/footer');
         }
 
-        public function tbl_d4fisioterapi()
-        {
-            $data['title'] = 'DIV Fisioterapi';
-            $data['prodi'] = $this->Akademikmodel->get_Tbld4fisio();
-            
-            $this->load->view('admin/templates/head',$data);
-            $this->load->view('admin/templates/sidebar.php');
-            $this->load->view('admin/templates/navbar.php');
-            $this->load->view('admin/akademik/d-d4fisioterapi',$data);
-            $this->load->view('admin/templates/footer.php');
-            $this->load->view('admin/templates/endscript.php');
-        }
-
         public function DIV_Fisioterapi()
         {
             $data['title'] = 'DIV Fisioterapi';
@@ -192,19 +219,6 @@
             $this->load->view('front/akademik/menu',$data);
             $this->load->view('front/akademik/d4fisio',$data);
             $this->load->view('front/templates/footer');
-        }
-        
-        public function tbl_d4tlm()
-        {
-            $data['title'] = 'DIV TLM';
-            $data['prodi'] = $this->Akademikmodel->get_Tbld4tlm();
-            
-            $this->load->view('admin/templates/head',$data);
-            $this->load->view('admin/templates/sidebar.php');
-            $this->load->view('admin/templates/navbar.php');
-            $this->load->view('admin/akademik/d-d4tlm',$data);
-            $this->load->view('admin/templates/footer.php');
-            $this->load->view('admin/templates/endscript.php');
         }
 
         public function DIV_TLM()
@@ -221,19 +235,6 @@
             $this->load->view('front/templates/footer');
         }
         
-        public function tbl_s1farmasi()
-        {
-            $data['title'] = 'S1 Farmasi';
-            $data['prodi'] = $this->Akademikmodel->get_Tbls1farmasi();
-            
-            $this->load->view('admin/templates/head',$data);
-            $this->load->view('admin/templates/sidebar.php');
-            $this->load->view('admin/templates/navbar.php');
-            $this->load->view('admin/akademik/d-s1farmasi',$data);
-            $this->load->view('admin/templates/footer.php');
-            $this->load->view('admin/templates/endscript.php');
-        }
-
         public function SI_Farmasi()
         {
             $data['title'] = 'SI Farmasi';
