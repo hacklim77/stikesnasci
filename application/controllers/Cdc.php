@@ -39,6 +39,10 @@
 
         public function Tbl_roc()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'CDC | Recruitmen on Campus';
             $data['berita'] = $this->Informasimodel->getTbl_roc();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -67,6 +71,10 @@
 
         public function Tbl_tracerStudy()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'CDC | Tracer Study';
             $data['berita'] = $this->Informasimodel->getTbl_tracerStudy();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -133,6 +141,10 @@
 
         public function Tbl_informasi()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'CDC | Informasi';
             $data['berita'] = $this->Informasimodel->getTbl_inform();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -161,6 +173,10 @@
 
         public function Tbl_benchmarking()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'CDC | Benchmarking';
             $data['berita'] = $this->Informasimodel->getTbl_benchmarking();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -230,6 +246,10 @@
 
         public function Tbl_cdcloker()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'CDC | CDC Loker';
             $data['berita'] = $this->Informasimodel->getTbl_cdcloker();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -258,6 +278,10 @@
 
         public function Tbl_download()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'CDC | Download';
             $data['berita'] = $this->Informasimodel->getTbl_downloadcdc();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();

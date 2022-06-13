@@ -25,6 +25,10 @@
 
         public function Tbl_bauk()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'BAUK';
             $data['berita'] = $this->Informasimodel->getTblbauk();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();

@@ -41,6 +41,10 @@
 
         public function tbl_beasiswa()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'Kemahasiswaan | Beasiswa';
             $data['berita'] = $this->Informasimodel->getTbl_beasiswa();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -70,6 +74,10 @@
 
         public function tbl_hibahmhs()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'Kemahasiswaan | Hibah Mahasiswa';
             $data['berita'] = $this->Informasimodel->getTbl_hibahmhs();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -99,6 +107,10 @@
 
         public function tbl_skp()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'Kemahasiswaan | SKP';
             $data['berita'] = $this->Informasimodel->getTbl_skp();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -112,6 +124,10 @@
 
         public function tbl_alumni()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'Kemahasiswaan | Alumni';
             $data['berita'] = $this->Informasimodel->getTbl_alumni();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -140,6 +156,10 @@
 
         public function tbl_seminar()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'Kemahasiswaan | Seminar Workshop';
             $data['berita'] = $this->Informasimodel->getTbl_seminarWorkshop();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -169,6 +189,10 @@
 
         public function tbl_ukm()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'Kemahasiswaan | UKM';
             $data['berita'] = $this->Informasimodel->getTbl_ukm();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -198,6 +222,10 @@
 
         public function tbl_organisasi()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'Kemahasiswaan | Organisasi';
             $data['berita'] = $this->Informasimodel->getTbl_organisasi();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -227,6 +255,10 @@
 
         public function tbl_survey()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'Kemahasiswaan | Survey Mahasiswa';
             $data['berita'] = $this->Informasimodel->getTbl_surveymhs();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -256,6 +288,10 @@
 
         public function tbl_download()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'Kemahasiswaan | Download';
             $data['berita'] = $this->Informasimodel->getTbl_downloadmhs();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();

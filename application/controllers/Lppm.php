@@ -80,6 +80,10 @@
 
         public function tbl_Lppminfo()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'LPPM Informasi';
             $data['berita'] = $this->Informasimodel->getTbl_Lppminformasi();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -107,6 +111,10 @@
 
         public function tbl_Lppmpkm()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'LPPM PKM';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmpkm();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -134,6 +142,10 @@
 
         public function tbl_Lppmpenelitian()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'LPPM Penelitian';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmpenelitian();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -161,6 +173,10 @@
         
         public function tbl_Lppmagenda()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'LPPM Agenda';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmagenda();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -188,6 +204,10 @@
 
         public function tbl_Lppmjurnal()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'LPPM Jurnal';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmjurnal();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();

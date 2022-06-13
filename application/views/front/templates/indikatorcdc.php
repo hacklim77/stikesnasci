@@ -16,7 +16,7 @@
 		    <?php if ($_SERVER['HTTP_REFERER'] == base_url('cdc/benchmarking')) {?>
                 <li class="breadcrumb-item"><a class="link" href="<?= base_url('cdc/benchmarking'); ?>">Benchmarking</a></li>
             <?php } ?>
-		    <?php if ($_SERVER['HTTP_REFERER'] == base_url('cdc/cdcloker')) {?>
+		    <?php if ($_SERVER['HTTP_REFERER'] == base_url('cdc/cdcloker') || $_SERVER['HTTP_REFERER'] == base_url('cdc/cdcloker/')) {?>
                 <li class="breadcrumb-item"><a class="link" href="<?= base_url('cdc/cdcloker'); ?>">Lowongan Pekerjaan</a></li>
             <?php } ?>
 		    <?php if ($_SERVER['HTTP_REFERER'] == base_url('cdc/download')) {?>

@@ -25,6 +25,10 @@
 
         public function Tbl_humas()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+
             $data['title'] = 'Humas';
             $data['berita'] = $this->Informasimodel->getTblhumas();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();

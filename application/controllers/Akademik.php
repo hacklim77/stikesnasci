@@ -8,8 +8,7 @@
             $this->load->model('Informasimodel');   
             $this->load->model('Akademikmodel');   
             $this->load->helper('tgl_indo','form','url');
-            $this->load->library('form_validation');
-             
+            $this->load->library('form_validation'); 
         }
 
         public function index()
@@ -116,6 +115,10 @@
 
         public function tbl_d3farmasi()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }    
+            
             $data['title'] = 'DIII Farmasi';
             $data['prodi'] = $this->Akademikmodel->get_Tbld3farmasi();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -124,11 +127,15 @@
             $this->load->view('admin/templates/navbar.php');
             $this->load->view('admin/akademik/d-d3farmasi',$data);
             $this->load->view('admin/templates/footer.php');
-            $this->load->view('admin/templates/endscript.php');
+            $this->load->view('admin/templates/endscript.php');    
         } 
 
         public function tbl_d3tlm()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }
+
             $data['title'] = 'DIII TLM';
             $data['prodi'] = $this->Akademikmodel->get_Tbld3tlm();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -142,6 +149,10 @@
 
         public function tbl_d4fisioterapi()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }
+
             $data['title'] = 'DIV Fisioterapi';
             $data['prodi'] = $this->Akademikmodel->get_Tbld4fisio();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -155,6 +166,10 @@
         
         public function tbl_d4tlm()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }
+
             $data['title'] = 'DIV TLM';
             $data['prodi'] = $this->Akademikmodel->get_Tbld4tlm();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -168,6 +183,10 @@
 
         public function tbl_s1farmasi()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }
+            
             $data['title'] = 'S1 Farmasi';
             $data['prodi'] = $this->Akademikmodel->get_Tbls1farmasi();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();

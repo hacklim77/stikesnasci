@@ -66,6 +66,10 @@
 
         public function tblBerita()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }
+
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['berita'] = $this->Informasimodel->getTblBerita();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -81,6 +85,10 @@
 
         public function tblInfomhs()
         {
+            if(!$this->session->userdata('username_admin')){
+                redirect('admin');
+            }  
+            
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['tipe'] = ['berita','info_mhs','bauk','humas', //0,1,2,3
                 'lppm_informasi','lppm_pkm','lppm_agenda','lppm_penelitian','jurnal', //4,5,6,7,8
