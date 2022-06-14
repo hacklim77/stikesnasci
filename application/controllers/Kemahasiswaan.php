@@ -27,7 +27,47 @@
         public function beasiswa()
         {
             $data['title'] = 'Beasiswa';
-            $data['berita'] = $this->Informasimodel->get_beasiswa();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/kemahasiswaan/beasiswa';
+            $config['total_rows'] = $this->Informasimodel->getbeasiswaCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->getbeasiswa($config['per_page'],$data['start']);
+
             $data['seminar'] = $this->Informasimodel->get_seminarWorkshop();
 
             $this->load->view('front/templates/header');
@@ -59,7 +99,47 @@
         public function hibahmhs()
         {
             $data['title'] = 'Hibah Mahasiswa';
-            $data['berita'] = $this->Informasimodel->get_hibahmhs();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/kemahasiswaan/hibahmhs';
+            $config['total_rows'] = $this->Informasimodel->gethibahmhsCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->gethibahmhs($config['per_page'],$data['start']);
+
             $data['beasiswa'] = $this->Informasimodel->get_beasiswaside();
             $data['seminar'] = $this->Informasimodel->get_seminarWorkshop();
 
@@ -92,7 +172,47 @@
         public function skp()
         {
             $data['title'] = 'SKP';
-            $data['berita'] = $this->Informasimodel->get_skp();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/kemahasiswaan/skp';
+            $config['total_rows'] = $this->Informasimodel->getskpCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->getskp($config['per_page'],$data['start']);
+
             $data['beasiswa'] = $this->Informasimodel->get_beasiswaside();
             $data['seminar'] = $this->Informasimodel->get_seminarside();
 
@@ -142,8 +262,48 @@
         public function seminar()
         {
             $data['title'] = 'Seminar Workshop';
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/kemahasiswaan/seminar';
+            $config['total_rows'] = $this->Informasimodel->getseminarwrkCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->getseminarwrk($config['per_page'],$data['start']);
+
             $data['beasiswa'] = $this->Informasimodel->get_beasiswaside();
-            $data['berita'] = $this->Informasimodel->get_seminarWorkshop();
 
             $this->load->view('front/templates/header');
             $this->load->view('front/templates/endscript');
@@ -174,7 +334,47 @@
         public function ukm()
         {
             $data['title'] = 'Unit Kegiatan Mahasiswa';
-            $data['berita'] = $this->Informasimodel->get_ukm();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/kemahasiswaan/ukm';
+            $config['total_rows'] = $this->Informasimodel->getukmCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->getukm($config['per_page'],$data['start']);
+
             $data['beasiswa'] = $this->Informasimodel->get_beasiswaside();
             $data['seminar'] = $this->Informasimodel->get_seminarside();
             
@@ -207,7 +407,47 @@
         public function organisasi()
         {
             $data['title'] = 'Organisasi';
-            $data['berita'] = $this->Informasimodel->get_organisasi();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/kemahasiswaan/organisasi';
+            $config['total_rows'] = $this->Informasimodel->getorganisasiCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->getorganisasi($config['per_page'],$data['start']);
+
             $data['beasiswa'] = $this->Informasimodel->get_beasiswaside();
             $data['seminar'] = $this->Informasimodel->get_seminarside();
             
@@ -240,7 +480,47 @@
         public function survey()
         {
             $data['title'] = 'Survey Layanan Kemahasiswaan';
-            $data['berita'] = $this->Informasimodel->get_surveymhs();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/kemahasiswaan/survey';
+            $config['total_rows'] = $this->Informasimodel->getsurveyCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->getsurvey($config['per_page'],$data['start']);
+
             $data['beasiswa'] = $this->Informasimodel->get_beasiswaside();
             $data['seminar'] = $this->Informasimodel->get_seminarside();
             
@@ -273,7 +553,47 @@
         public function download()
         {
             $data['title'] = 'Download';
-            $data['berita'] = $this->Informasimodel->get_downloadmhs();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/kemahasiswaan/download';
+            $config['total_rows'] = $this->Informasimodel->getdownloadmhsCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->getdownloadmhs($config['per_page'],$data['start']);
+
             $data['beasiswa'] = $this->Informasimodel->get_beasiswaside();
             $data['seminar'] = $this->Informasimodel->get_seminarside();
             

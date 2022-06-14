@@ -51,6 +51,11 @@
                             </li>
                         <?php endforeach ?>    
                     </ul>
+                    <?php 
+                    if($berita == null){
+                        echo "<i>Belum ada info Hibah mahasiswa</i>";
+                    }
+                    ?>
 				</div>
 			</div>
 		</div>

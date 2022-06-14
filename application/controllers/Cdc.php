@@ -25,7 +25,47 @@
         public function Roc()
         {
             $data['title'] = 'Recruitment on Campus';
-            $data['berita'] = $this->Informasimodel->get_roc();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/cdc/roc';
+            $config['total_rows'] = $this->Informasimodel->getrocCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->getroc($config['per_page'],$data['start']);
+
             //$data['seminar'] = $this->Informasimodel->get_seminarWorkshop();
 
             $this->load->view('front/templates/header');
@@ -57,7 +97,47 @@
         public function tracerStudy()
         {
             $data['title'] = 'Tracer Study';
-            $data['berita'] = $this->Informasimodel->get_tracerStudy();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/cdc/tracerStudy';
+            $config['total_rows'] = $this->Informasimodel->gettracerstdCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->gettracerstd($config['per_page'],$data['start']);
+
             //$data['seminar'] = $this->Informasimodel->get_seminarWorkshop();
 
             $this->load->view('front/templates/header');
@@ -159,7 +239,47 @@
         public function Benchmarking()
         {
             $data['title'] = 'Benchmarking';
-            $data['berita'] = $this->Informasimodel->get_benchmarking();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/cdc/benchmarking';
+            $config['total_rows'] = $this->Informasimodel->getbenchCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->getbench($config['per_page'],$data['start']);
+
             //$data['seminar'] = $this->Informasimodel->get_seminarWorkshop();
 
             $this->load->view('front/templates/header');
@@ -264,7 +384,47 @@
         public function download()
         {
             $data['title'] = 'Download';
-            $data['berita'] = $this->Informasimodel->get_downloadcdc();
+
+            $this->load->library('pagination');
+
+            $config['base_url'] = 'http://localhost/stikesnas/cdc/download';
+            $config['total_rows'] = $this->Informasimodel->getdwlcdcCount();
+            $config['per_page'] = 10;
+
+
+            $config['full_tag_open'] = '<nav class="nav-page"><ul class="pagination">';
+            $config['full_tag_close'] = '</ul></nav>';
+
+            $config['first_link'] = 'First';
+            $config['first_tag_open'] = '<li class="page-item">';
+            $config['first_tag_close'] = '</li>';
+            
+            $config['last_link'] = 'Last';
+            $config['last_tag_open'] = '<li class="page-item">';
+            $config['last_tag_close'] = '</li>';
+            
+            $config['next_link'] = '&raquo';
+            $config['next_tag_open'] = '<li class="page-item">';
+            $config['next_tag_close'] = '</li>';
+            
+            $config['prev_link'] = '&laquo';
+            $config['prev_tag_open'] = '<li class="page-item">';
+            $config['prev_tag_close'] = '</li>';
+            
+            $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+            $config['cur_tag_close'] = '</a></li>';
+            
+            $config['num_tag_open'] = '<li class="page-item">';
+            $config['num_tag_close'] = '</li>';
+
+            $config['attributes'] = array('class' => 'page-link');
+
+            $this->pagination->initialize($config);
+            
+            $data['start'] = $this->uri->segment(3);
+
+            $data['berita'] = $this->Informasimodel->getdwlcdc($config['per_page'],$data['start']);
+
             //$data['seminar'] = $this->Informasimodel->get_seminarWorkshop();
 
             $this->load->view('front/templates/header');

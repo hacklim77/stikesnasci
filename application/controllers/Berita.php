@@ -305,7 +305,7 @@
             elseif ($_SERVER['HTTP_REFERER'] == base_url('cdc/roc') || $_SERVER['HTTP_REFERER'] == base_url('cdc/tracerStudy') || $_SERVER['HTTP_REFERER'] == base_url('cdc/informasi') || $_SERVER['HTTP_REFERER'] == base_url('cdc/benchmarking') || $_SERVER['HTTP_REFERER'] == base_url('cdc/cdcloker') || $_SERVER['HTTP_REFERER'] == base_url('cdc/download')) {
                 $this->load->view('front/templates/indikatorcdc',$data);
             }
-
+            
             elseif ($this->uri->segment(2)=="detmhs" || $this->uri->segment(2)=="detailberita"){
                 $this->load->view('front/templates/indikatormhs',$data);
             }

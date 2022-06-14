@@ -266,6 +266,16 @@
             return $query;   
         }
 
+        public function getlppmpkm($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'lppm_pkm'], $limit,$start)->result_array();
+        }
+        
+        public function getlppmpkmCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'lppm_pkm'])->num_rows();
+        }
+
         ///////////////////////////////////////////////////////////* Batas Lppm PKM *///////////////////////////////////////////////////////////
         
         ///////////////////////////////////////////////////////////* Data Lppm Agenda *///////////////////////////////////////////////////////////
@@ -288,6 +298,16 @@
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function getlppmagenda($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'lppm_agenda'], $limit,$start)->result_array();
+        }
+        
+        public function getlppmagendaCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'lppm_agenda'])->num_rows();
         }
 
         ///////////////////////////////////////////////////////////* Batas Lppm Agenda *///////////////////////////////////////////////////////////
@@ -314,6 +334,16 @@
             return $query;   
         }
 
+        public function getlppmpnl($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'lppm_penelitian'], $limit,$start)->result_array();
+        }
+        
+        public function getlppmpnlCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'lppm_penelitian'])->num_rows();
+        }
+
         ///////////////////////////////////////////////////////////* Batas Lppm Penelitian *///////////////////////////////////////////////////////////
         
         ///////////////////////////////////////////////////////////* Data Lppm Jurnal *///////////////////////////////////////////////////////////
@@ -333,10 +363,20 @@
         {
             $this->db->select('*');
             $this->db->from('berita');
-            $this->db->like('tipe_berita','lppm_jurnal');
+            $this->db->like('tipe_berita','jurnal');
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function getlppmjurnal($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'jurnal'], $limit,$start)->result_array();
+        }
+        
+        public function getlppmjurnalCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'jurnal'])->num_rows();
         }
 
         ///////////////////////////////////////////////////////////* Batas Lppm Jurnal *///////////////////////////////////////////////////////////
@@ -372,6 +412,18 @@
             $query = $this->db->get()->result_array();
             return $query;   
         }
+
+        public function getbeasiswa($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'beasiswa'], $limit,$start)->result_array();
+        }
+        
+        public function getbeasiswaCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'beasiswa'])->num_rows();
+        }
+
+
         /////////////////////////////////////////////////////////////* Batas Beasiswa *///////////////////////////////////////////////////////////
 
         /////////////////////////////////////////////////////////////* Hibah Mahasiswa *///////////////////////////////////////////////////////////
@@ -380,7 +432,7 @@
         {
             $this->db->select('*');
             $this->db->from('berita');
-            $this->db->like('tipe_berita','kreativitas');
+            $this->db->like('tipe_berita','hibah_mahasiswa');
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;        
@@ -390,10 +442,20 @@
         {
             $this->db->select('*');
             $this->db->from('berita');
-            $this->db->like('tipe_berita','kreativitas');
+            $this->db->like('tipe_berita','hibah_mahasiswa');
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function gethibahmhs($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'hibah_mahasiswa'], $limit,$start)->result_array();
+        }
+        
+        public function gethibahmhsCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'hibah_mahasiswa'])->num_rows();
         }
         
         /////////////////////////////////////////////////////////////* Batas Hibah Mahasiswa *///////////////////////////////////////////////////////////
@@ -419,6 +481,16 @@
             $query = $this->db->get()->result_array();
             return $query;   
         }
+
+        public function getskp($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'skp'], $limit,$start)->result_array();
+        }
+        
+        public function getskpCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'skp'])->num_rows();
+        }
         
         /////////////////////////////////////////////////////////////* Batas SKP *///////////////////////////////////////////////////////////
   
@@ -442,6 +514,16 @@
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function getalumni($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'alumni'], $limit,$start)->result_array();
+        }
+        
+        public function getalumniCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'alumni'])->num_rows();
         }
 
         /////////////////////////////////////////////////////////////* Batas Alumni *///////////////////////////////////////////////////////////
@@ -479,6 +561,16 @@
             return $query;   
         }
 
+        public function getseminarwrk($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'seminar_workshop'], $limit,$start)->result_array();
+        }
+        
+        public function getseminarwrkCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'seminar_workshop'])->num_rows();
+        }
+
         /////////////////////////////////////////////////////////////* Batas Seminar Workshop *///////////////////////////////////////////////////////////
 
         /////////////////////////////////////////////////////////////* UKM *///////////////////////////////////////////////////////////
@@ -501,6 +593,16 @@
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function getukm($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'ukm'], $limit,$start)->result_array();
+        }
+        
+        public function getukmCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'ukm'])->num_rows();
         }
 
         /////////////////////////////////////////////////////////////* Batas UKM *///////////////////////////////////////////////////////////
@@ -527,6 +629,16 @@
             return $query;   
         }
 
+        public function getorganisasi($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'organisasi'], $limit,$start)->result_array();
+        }
+        
+        public function getorganisasiCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'organisasi'])->num_rows();
+        }
+
         /////////////////////////////////////////////////////////////* Batas Organisasi *///////////////////////////////////////////////////////////
 
         /////////////////////////////////////////////////////////////* Survey Mahasiswa *///////////////////////////////////////////////////////////
@@ -549,6 +661,16 @@
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function getsurvey($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'survey_kemahasiswaan'], $limit,$start)->result_array();
+        }
+        
+        public function getsurveyCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'survey_kemahasiswaan'])->num_rows();
         }
 
         /////////////////////////////////////////////////////////////* Batas Survey Mahasiswa *///////////////////////////////////////////////////////////
@@ -575,6 +697,16 @@
             return $query;   
         }
 
+        public function getdownloadmhs($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'download_mhs'], $limit,$start)->result_array();
+        }
+        
+        public function getdownloadmhsCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'download_mhs'])->num_rows();
+        }
+
         /////////////////////////////////////////////////////////////* Batas Download Mhs *///////////////////////////////////////////////////////////
 
         /////////////////////////////////////////////////////////////* ROC *///////////////////////////////////////////////////////////
@@ -597,6 +729,16 @@
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function getroc($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'roc'], $limit,$start)->result_array();
+        }
+        
+        public function getrocCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'roc'])->num_rows();
         }
         
         /////////////////////////////////////////////////////////////* Batas ROC *///////////////////////////////////////////////////////////
@@ -621,6 +763,16 @@
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function gettracerstd($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'tracer_study'], $limit,$start)->result_array();
+        }
+        
+        public function gettracerstdCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'tracer_study'])->num_rows();
         }
 
         /////////////////////////////////////////////////////////////* Batas Tracer Study *///////////////////////////////////////////////////////////
@@ -680,6 +832,16 @@
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function getbench($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'benchmarking'], $limit,$start)->result_array();
+        }
+        
+        public function getbenchCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'benchmarking'])->num_rows();
         }
 
         /////////////////////////////////////////////////////////////* Batas Benchmarking *///////////////////////////////////////////////////////////
@@ -749,6 +911,16 @@
             $this->db->order_by('id_berita','DESC');
             $query = $this->db->get()->result_array();
             return $query;   
+        }
+
+        public function getdwlcdc($limit,$start)
+        {
+            return $this->db->order_by('id_berita','desc')->get_where('berita', ['tipe_berita' => 'download_cdc'], $limit,$start)->result_array();
+        }
+        
+        public function getdwlcdcCount()
+        {
+            return $this->db->get_where('berita', ['tipe_berita' => 'download_cdc'])->num_rows();
         }
         
         /////////////////////////////////////////////////////////////* Batas Download CDC *///////////////////////////////////////////////////////////

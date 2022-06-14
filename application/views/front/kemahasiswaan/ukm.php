@@ -51,6 +51,7 @@
                             </li>
                         <?php endforeach ?>    
                     </ul>
+                    <?= $this->pagination->create_links(); ?>
 				</div>
 			</div>
 		</div>

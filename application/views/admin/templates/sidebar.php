@@ -11,7 +11,7 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav" id="main-tab">
-            <li class="home <?php if($this->uri->segment(1)=="admin"){echo "actived";} ?>">
+            <li class="home <?php if($this->uri->segment(1)=="dashboard"){echo "actived";} ?>">
                 <a href="<?= base_url('dashboard'); ?>">
                     <i class="material-icons">dashboard</i>
                     <p>DASHBOARD</p>

@@ -51,6 +51,7 @@
                             </li>
                         <?php endforeach ?>    
                     </ul>
+                    <?= $this->pagination->create_links(); ?>
                     <?php 
                     if($berita == null){
                         echo "<i>Belum ada info Survey Layanan Kemahasiswaan</i>";
