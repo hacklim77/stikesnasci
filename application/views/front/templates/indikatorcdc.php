@@ -25,7 +25,7 @@
 		    <?php foreach ($berita as $key):?>
                 <li class="breadcrumb-item active" aria-current="page"><?= substr($key->judul_berita,0,25).'.....'?></li>
             <?php endforeach ?>    
-        </ol>
+          </ol>
 		</nav>
 	</div>
 </div>
