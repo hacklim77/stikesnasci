@@ -318,6 +318,10 @@
                 $this->load->view('front/templates/indikatorcdc',$data);
             }
             
+            /* elseif ($this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikator',$data);
+            } */
+            
             $this->load->view('front/berita/detailberita',$data);
             $this->load->view('front/templates/footer');
         }
@@ -357,6 +361,10 @@
             elseif ($this->uri->segment(2)=="detcdc" || $this->uri->segment(2)=="detailberita"){
                 $this->load->view('front/templates/indikatorcdc',$data);
             }
+
+            /* elseif ($this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikator',$data);
+            } */
             
             $this->load->view('front/kemahasiswaan/menu/menu',$data);
             $this->load->view('front/kemahasiswaan/detmhs',$data);
@@ -397,6 +405,10 @@
                 $this->load->view('front/templates/indikatorcdc',$data);
             }
 
+            /* elseif ($this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikator',$data);
+            } */
+
             $this->load->view('front/lppm/menu',$data);
             $this->load->view('front/lppm/detlppm',$data);
             $this->load->view('front/templates/footer');
@@ -435,6 +447,10 @@
             elseif ($this->uri->segment(2)=="detcdc" || $this->uri->segment(2)=="detailberita"){
                 $this->load->view('front/templates/indikatorcdc',$data);
             }
+
+            /* elseif ($this->uri->segment(2)=="detailberita"){
+                $this->load->view('front/templates/indikator',$data);
+            } */
 
             $this->load->view('front/cdc/menu',$data);
             $this->load->view('front/cdc/detcdc',$data);

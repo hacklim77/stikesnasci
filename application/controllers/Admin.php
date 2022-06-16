@@ -5,7 +5,7 @@
         public function __construct()
         {
             parent::__construct();
-            $this->load->library('form_validation');
+            $this->load->library('form_validation','encrypt');
             $this->load->model('Usermodel');
         }
 
@@ -53,6 +53,15 @@
         {
             $this->session->sess_destroy();
             redirect('admin');
+        }
+
+        public function dec()
+        {        
+            $user = $this->db->get_where('admin',['username_admin' => 'admin_pmb'])->row_array();
+            
+            
+
+            print_r($user);
         }
 
     }
