@@ -8,13 +8,11 @@
             $this->load->library('form_validation','session');
             $this->load->model('Usermodel');
             
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            } 
         }
 
         public function index()
         {
+           cek_not_login();
            if ($this->session->userdata('katagori_admin') == 0) {
                
                $data['title'] = 'Admin Stikes Nasional';

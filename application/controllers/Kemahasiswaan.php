@@ -81,9 +81,7 @@
 
         public function tbl_beasiswa()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'Kemahasiswaan | Beasiswa';
             $data['berita'] = $this->Informasimodel->getTbl_beasiswa();
@@ -154,9 +152,7 @@
 
         public function tbl_hibahmhs()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'Kemahasiswaan | Hibah Mahasiswa';
             $data['berita'] = $this->Informasimodel->getTbl_hibahmhs();
@@ -227,9 +223,7 @@
 
         public function tbl_skp()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();  
 
             $data['title'] = 'Kemahasiswaan | SKP';
             $data['berita'] = $this->Informasimodel->getTbl_skp();
@@ -244,9 +238,7 @@
 
         public function tbl_alumni()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();
 
             $data['title'] = 'Kemahasiswaan | Alumni';
             $data['berita'] = $this->Informasimodel->getTbl_alumni();
@@ -316,9 +308,7 @@
 
         public function tbl_seminar()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();  
 
             $data['title'] = 'Kemahasiswaan | Seminar Workshop';
             $data['berita'] = $this->Informasimodel->getTbl_seminarWorkshop();
@@ -389,9 +379,7 @@
 
         public function tbl_ukm()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();
 
             $data['title'] = 'Kemahasiswaan | UKM';
             $data['berita'] = $this->Informasimodel->getTbl_ukm();
@@ -462,9 +450,7 @@
 
         public function tbl_organisasi()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'Kemahasiswaan | Organisasi';
             $data['berita'] = $this->Informasimodel->getTbl_organisasi();
@@ -535,9 +521,7 @@
 
         public function tbl_survey()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();  
 
             $data['title'] = 'Kemahasiswaan | Survey Mahasiswa';
             $data['berita'] = $this->Informasimodel->getTbl_surveymhs();
@@ -608,9 +592,7 @@
 
         public function tbl_download()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();  
 
             $data['title'] = 'Kemahasiswaan | Download';
             $data['berita'] = $this->Informasimodel->getTbl_downloadmhs();

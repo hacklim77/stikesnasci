@@ -66,9 +66,7 @@
 
         public function tblBerita()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }
+            cek_not_login();
 
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['berita'] = $this->Informasimodel->getTblBerita();
@@ -85,9 +83,7 @@
 
         public function tblInfomhs()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();  
             
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['tipe'] = ['berita','info_mhs','bauk','humas', //0,1,2,3

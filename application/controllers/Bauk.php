@@ -25,9 +25,7 @@
 
         public function Tbl_bauk()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();
 
             $data['title'] = 'BAUK';
             $data['berita'] = $this->Informasimodel->getTblbauk();

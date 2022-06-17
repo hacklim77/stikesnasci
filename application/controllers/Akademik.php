@@ -115,9 +115,7 @@
 
         public function tbl_d3farmasi()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }    
+            cek_not_login();    
             
             $data['title'] = 'DIII Farmasi';
             $data['prodi'] = $this->Akademikmodel->get_Tbld3farmasi();
@@ -132,9 +130,7 @@
 
         public function tbl_d3tlm()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }
+            cek_not_login();
 
             $data['title'] = 'DIII TLM';
             $data['prodi'] = $this->Akademikmodel->get_Tbld3tlm();
@@ -149,9 +145,7 @@
 
         public function tbl_d4fisioterapi()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }
+            cek_not_login();
 
             $data['title'] = 'DIV Fisioterapi';
             $data['prodi'] = $this->Akademikmodel->get_Tbld4fisio();
@@ -166,9 +160,7 @@
         
         public function tbl_d4tlm()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }
+            cek_not_login();
 
             $data['title'] = 'DIV TLM';
             $data['prodi'] = $this->Akademikmodel->get_Tbld4tlm();
@@ -183,9 +175,7 @@
 
         public function tbl_s1farmasi()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }
+            cek_not_login();
             
             $data['title'] = 'S1 Farmasi';
             $data['prodi'] = $this->Akademikmodel->get_Tbls1farmasi();

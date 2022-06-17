@@ -11,6 +11,9 @@
 
         public function index()
         {
+
+            cek_login();
+
             $this->form_validation->set_rules('username_admin','Username','required');
 			$this->form_validation->set_rules('password_admin','Password','required');
             

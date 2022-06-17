@@ -25,9 +25,7 @@
 
         public function Tbl_humas()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();  
 
             $data['title'] = 'Humas';
             $data['berita'] = $this->Informasimodel->getTblhumas();

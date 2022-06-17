@@ -80,9 +80,7 @@
 
         public function tbl_Lppminfo()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'LPPM Informasi';
             $data['berita'] = $this->Informasimodel->getTbl_Lppminformasi();
@@ -150,9 +148,7 @@
 
         public function tbl_Lppmpkm()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();  
 
             $data['title'] = 'LPPM PKM';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmpkm();
@@ -220,9 +216,7 @@
 
         public function tbl_Lppmpenelitian()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'LPPM Penelitian';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmpenelitian();
@@ -290,9 +284,7 @@
         
         public function tbl_Lppmagenda()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'LPPM Agenda';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmagenda();
@@ -360,9 +352,7 @@
 
         public function tbl_Lppmjurnal()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();
 
             $data['title'] = 'LPPM Jurnal';
             $data['berita'] = $this->Informasimodel->getTbl_Lppmjurnal();

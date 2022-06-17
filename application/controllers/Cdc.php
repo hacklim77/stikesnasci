@@ -79,9 +79,7 @@
 
         public function Tbl_roc()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login();  
 
             $data['title'] = 'CDC | Recruitmen on Campus';
             $data['berita'] = $this->Informasimodel->getTbl_roc();
@@ -151,9 +149,7 @@
 
         public function Tbl_tracerStudy()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'CDC | Tracer Study';
             $data['berita'] = $this->Informasimodel->getTbl_tracerStudy();
@@ -221,9 +217,7 @@
 
         public function Tbl_informasi()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'CDC | Informasi';
             $data['berita'] = $this->Informasimodel->getTbl_inform();
@@ -293,9 +287,7 @@
 
         public function Tbl_benchmarking()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'CDC | Benchmarking';
             $data['berita'] = $this->Informasimodel->getTbl_benchmarking();
@@ -366,9 +358,7 @@
 
         public function Tbl_cdcloker()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'CDC | CDC Loker';
             $data['berita'] = $this->Informasimodel->getTbl_cdcloker();
@@ -438,9 +428,7 @@
 
         public function Tbl_download()
         {
-            if(!$this->session->userdata('username_admin')){
-                redirect('admin');
-            }  
+            cek_not_login(); 
 
             $data['title'] = 'CDC | Download';
             $data['berita'] = $this->Informasimodel->getTbl_downloadcdc();
