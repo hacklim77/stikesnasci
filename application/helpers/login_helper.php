@@ -19,3 +19,9 @@
             redirect('admin');
         }
     }
+
+    function cek_admin()
+    {
+        $ci =& get_instance();
+        $ci->load->library('fungsi');
+    }

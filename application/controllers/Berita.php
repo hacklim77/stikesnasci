@@ -7,7 +7,7 @@
             parent::__construct();
             $this->load->model('Informasimodel');   
             $this->load->helper('tgl_indo','form','url');
-            $this->load->library('form_validation');
+            $this->load->library('form_validation','login');
             $this->load->model('Usermodel');
         }
 
@@ -67,7 +67,7 @@
         public function tblBerita()
         {
             cek_not_login();
-
+            
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['berita'] = $this->Informasimodel->getTblBerita();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
@@ -105,6 +105,7 @@
 
         public function tambahBerita()
         {
+            cek_not_login();
             $this->form_validation->set_rules('judul_berita','Judul Berita','required');
 			$this->form_validation->set_rules('isi_berita','Isi','required');
 
@@ -239,6 +240,7 @@
 
         public function editBerita($id=null)
         {
+            cek_not_login();
             $this->form_validation->set_rules('judul_berita','Judul Berita','required');
 			$this->form_validation->set_rules('isi_berita','Isi','required');
 			/* $this->form_validation->set_rules('prodi','prodi','required'); */    
@@ -265,6 +267,7 @@
 
         public function deleteBerita($id)
         {
+            cek_not_login();
             $data['title'] = 'Admin Stikes Nasional | Berita';
             $data['berita'] = $this->Informasimodel->getTblBerita();
             $data['admin'] = $this->db->get_where('admin',['nama_admin' => $this->session->userdata('nama_admin')])->row_array();
