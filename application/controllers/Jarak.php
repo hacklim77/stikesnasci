@@ -8,18 +8,20 @@
             $this->load->model('M_jarak');   
         }
 
-        public function index()
+        public function index($unit='K')
         {            
             //$data['hitung'] = $this->M_jarak->hitung($unit);
+            $data['hitung'] = $this->M_jarak->hitung($unit);
+            $this->load->view('jarak',$data);
 
-            $this->load->view('jarak');
+            //echo "<script>window.stop()</script>";
         }
 
-        public function hasil($unit='K')
+        /* public function hasil()
         {
-            $data['hitung'] = $this->M_jarak->hitung($unit);
+            
 
             $this->load->view('hasil',$data);
         }
-
+ */
     }
