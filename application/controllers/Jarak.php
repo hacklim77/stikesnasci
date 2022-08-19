@@ -14,8 +14,6 @@
             $data['dist'] = ['-7.59294198430983','110.81489362107249'];
             $data['hitung'] = $this->M_jarak->hitung($unit);
             $this->load->view('jarak',$data);
-
-            //echo "<script>window.stop()</script>";
         }
 
         public function proses($unit='K')
@@ -24,6 +22,10 @@
             
             $data['hitung'] = $this->M_jarak->hitung($unit);
             $this->load->view('hasil',$data);
+
+            //redirect('jarak',$data);
+            //die;
+
         }
 
     }
